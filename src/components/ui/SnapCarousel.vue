@@ -38,6 +38,7 @@ onBeforeUnmount(() => window.removeEventListener('resize', update))
 <template>
   <div class="carousel" role="region" :aria-label="label">
     <div class="carousel__controls">
+      <div class="carousel__header"><slot name="header" /></div>
       <button type="button" class="carousel__arrow" :disabled="atStart" @click="step(-1)">
         <AppIcon name="chevron-left" :size="22" />
         <span class="visually-hidden">Previous</span>
@@ -63,8 +64,13 @@ onBeforeUnmount(() => window.removeEventListener('resize', update))
 
 .carousel__controls {
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-end;
   gap: var(--space-2);
+}
+
+.carousel__header {
+  flex: 1;
+  margin-right: var(--space-4);
 }
 
 .carousel__arrow {

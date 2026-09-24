@@ -8,6 +8,7 @@ export const copy = {
     menu: 'See the menu',
     story: 'Our story',
     contact: 'Contact us',
+    email: 'Email us',
     home: 'Back to home',
   },
 
@@ -44,7 +45,7 @@ export const copy = {
 
   about: {
     hero: {
-      intro: 'Our story',
+      intro: 'Spice Dine, Woolloongabba', // PLACEHOLDER
       title: 'Our story',
       lead: 'A family kitchen on Ipswich Road cooking the food we grew up with in Dhaka.', // PLACEHOLDER
       image: { src: null, alt: 'The Spice Dine kitchen team at work', label: 'Kitchen team photo' }, // PLACEHOLDER
