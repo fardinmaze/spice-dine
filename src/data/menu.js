@@ -2,7 +2,8 @@
 // price: 0 renders as "$—.—". Bangla names must be checked by a native speaker.
 // tags: 'spicy' | 'vegetarian' | 'nuts' | 'popular'
 
-const img = (caption, alt) => ({ src: null, alt, caption })
+// Photos in public/images/dishes/ are temporary (from the client's "Items Image" folder); src: null renders a placeholder.
+const img = (caption, alt, src = null) => ({ src: src && `/images/dishes/${src}.webp`, alt, caption })
 
 export const menu = [
   {
@@ -10,14 +11,15 @@ export const menu = [
     title: 'Rice & Tehari',
     titleBn: 'ভাত ও তেহারি',
     images: [
-      img('Goat tehari, straight from the pot', 'Goat tehari on a steel plate'),
-      img('Polau with chicken roast', 'Polau rice with a chicken roast leg'),
+      img('Beef tehari with kebabs, borhani and gulab jamun', 'A plate of beef tehari with chicken skewers, grilled chicken, a glass of borhani and a bowl of gulab jamun', 'tehari-feast'),
+      img('Chicken fry with fried rice', 'Fried chicken drumstick with vegetable fried rice and sweet and sour sauce', 'fried-chicken-rice-plate'),
     ],
     items: [
       { name: 'Goat Tehari', nameBn: 'খাসির তেহারি', price: 0, desc: 'Fragrant rice cooked with goat, mustard oil and green chilli.', tags: ['popular'], placeholder: true },
       { name: 'Beef Tehari', nameBn: 'গরুর তেহারি', price: 0, desc: 'Short-grain rice slow-cooked with beef, whole spices and ghee.', tags: [], placeholder: true },
       { name: 'Polau & Chicken Roast', nameBn: 'পোলাও ও মুরগির রোস্ট', price: 0, desc: 'Buttery polau with a rich, sweet-savoury chicken roast.', tags: ['popular'], placeholder: true },
       { name: 'Kacchi Biryani', nameBn: 'কাচ্চি বিরিয়ানি', price: 0, desc: 'Marinated goat and potato layered with rice and sealed to cook.', tags: [], placeholder: true },
+      { name: 'Chicken Fry & Fried Rice', nameBn: 'চিকেন ফ্রাই ও ফ্রাইড রাইস', price: 0, desc: 'Crumbed fried chicken with vegetable fried rice.', tags: [], placeholder: true },
       { name: 'Vegetable Khichuri', nameBn: 'সবজি খিচুড়ি', price: 0, desc: 'Rice and lentils cooked soft with seasonal vegetables.', tags: ['vegetarian'], placeholder: true },
     ],
   },
@@ -26,13 +28,14 @@ export const menu = [
     title: 'Curries & Bhuna',
     titleBn: 'তরকারি ও ভুনা',
     images: [
-      img('Beef kala bhuna, cooked dark and dry', 'Beef kala bhuna in a black iron pot'),
+      img('Shorshe ilish with rice and lassi', 'Hilsa steaks in mustard curry with a bowl of rice and a banana lassi', 'hilsa-mustard-curry'),
       img('Chicken curry with potato', 'Chicken curry in a bowl with rice'),
     ],
     items: [
       { name: 'Beef Kala Bhuna', nameBn: 'গরুর কালা ভুনা', price: 0, desc: 'Beef slow-fried with onion and roasted spices until almost black.', tags: ['spicy', 'popular'], placeholder: true },
       { name: 'Goat Curry', nameBn: 'খাসির মাংসের ঝোল', price: 0, desc: 'Bone-in goat in a thin, peppery gravy with potato.', tags: ['spicy'], placeholder: true },
       { name: 'Chicken Curry', nameBn: 'মুরগির ঝোল', price: 0, desc: 'Home-style chicken curry with potato, ginger and garlic.', tags: [], placeholder: true },
+      { name: 'Shorshe Ilish', nameBn: 'সর্ষে ইলিশ', price: 0, desc: 'Hilsa steaks cooked in mustard paste, green chilli and mustard oil.', tags: ['spicy'], placeholder: true },
       { name: 'Chicken Rezala', nameBn: 'মুরগির রেজালা', price: 0, desc: 'Mild, creamy curry with yoghurt, cashew and cardamom.', tags: ['nuts'], placeholder: true },
       { name: 'Dal Bhuna', nameBn: 'ডাল ভুনা', price: 0, desc: 'Red lentils fried down with garlic, cumin and dried chilli.', tags: ['vegetarian'], placeholder: true },
     ],
@@ -59,8 +62,8 @@ export const menu = [
     title: 'Kebabs & Grill',
     titleBn: 'কাবাব ও গ্রিল',
     images: [
-      img('Chicken jali kebab, pan-fried', 'Chicken jali kebabs with a lattice egg coating'),
-      img('Seekh kebab off the grill', 'Seekh kebabs on skewers'),
+      img('Seekh kebab on rice, with a beef burger', 'Grilled seekh kebabs over rice with salad beside a sesame-bun beef burger', 'burger-and-kebab-rice'),
+      img('Chicken kebab wrap with chips', 'A grilled chicken wrap cut in half with chips and a cola', 'chicken-wrap-fries'),
     ],
     items: [
       { name: 'Chicken Jali Kebab', nameBn: 'মুরগির জালি কাবাব', price: 0, desc: 'Minced chicken patties in a lacy egg coat.', tags: ['popular'], placeholder: true },
@@ -74,14 +77,15 @@ export const menu = [
     title: 'Wraps, Burgers & Snack Packs',
     titleBn: 'র‍্যাপ, বার্গার ও স্ন্যাক প্যাক',
     images: [
-      img('Halal snack pack, loaded', 'Halal snack pack with chips, meat and sauces'),
-      img('Kebab wrap to go', 'A chicken kebab wrap cut in half'),
+      img('Chicken wrap meal, to go', 'A chicken wrap with garlic sauce, a cone of chips and an iced cola', 'wrap-combo'),
+      img('Fish and chips with lemon', 'Battered fish fillets and chips with lemon wedges', 'fish-and-chips'),
     ],
     items: [
       { name: 'Halal Snack Pack', nameBn: 'হালাল স্ন্যাক প্যাক', price: 0, desc: 'Chips, kebab meat, cheese and three sauces.', tags: ['popular'], placeholder: true },
       { name: 'Chicken Kebab Wrap', nameBn: 'চিকেন কাবাব র‍্যাপ', price: 0, desc: 'Grilled chicken, salad and garlic sauce in a paratha.', tags: [], placeholder: true },
       { name: 'Beef Kebab Wrap', nameBn: 'বিফ কাবাব র‍্যাপ', price: 0, desc: 'Spiced beef, onion, chilli sauce and salad.', tags: ['spicy'], placeholder: true },
       { name: 'Loaded Beef Burger', nameBn: 'লোডেড বিফ বার্গার', price: 0, desc: 'Beef patty, cheese, egg and house sauce.', tags: [], placeholder: true },
+      { name: 'Fish & Chips', nameBn: 'ফিশ অ্যান্ড চিপস', price: 0, desc: 'Battered fish fillets, chips and a wedge of lemon.', tags: [], placeholder: true },
       { name: 'Chicken Burger', nameBn: 'চিকেন বার্গার', price: 0, desc: 'Crumbed chicken, lettuce and mint mayo.', tags: [], placeholder: true },
     ],
   },
@@ -106,13 +110,14 @@ export const menu = [
     title: 'Drinks & Desserts',
     titleBn: 'পানীয় ও মিষ্টি',
     images: [
-      img('Borhani, the wedding drink', 'Glasses of borhani'),
+      img('Lassi, mango lassi and milk tea', 'A tray of sweet lassi, mango lassi, pistachio lassi and a cup of milk tea', 'lassi-and-chai'),
       img('Firni set in clay pots', 'Firni in small clay bowls'),
     ],
     items: [
       { name: 'Borhani', nameBn: 'বোরহানি', price: 0, desc: 'Spiced yoghurt drink with mint and black salt.', tags: ['vegetarian', 'popular'], placeholder: true },
       { name: 'Mango Lassi', nameBn: 'আমের লাচ্ছি', price: 0, desc: 'Mango blended with yoghurt and a little cardamom.', tags: ['vegetarian'], placeholder: true },
       { name: 'Sweet Lassi', nameBn: 'মিষ্টি লাচ্ছি', price: 0, desc: 'Chilled sweet yoghurt drink.', tags: ['vegetarian'], placeholder: true },
+      { name: 'Milk Tea', nameBn: 'দুধ চা', price: 0, desc: 'Strong black tea boiled with milk and sugar.', tags: ['vegetarian'], placeholder: true },
       { name: 'Firni', nameBn: 'ফিরনি', price: 0, desc: 'Ground-rice pudding with cardamom and pistachio.', tags: ['vegetarian', 'nuts'], placeholder: true },
       { name: 'Mishti Doi', nameBn: 'মিষ্টি দই', price: 0, desc: 'Sweet set yoghurt with caramelised milk.', tags: ['vegetarian'], placeholder: true },
     ],

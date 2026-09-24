@@ -10,6 +10,7 @@ defineProps({
   caption: { type: String, default: '' }, // rendered as <figcaption>
   ratio: { type: String, default: '4 / 5' },
   ratioMobile: { type: String, default: null },
+  position: { type: String, default: null }, // object-position focal point for cropped photos
   width: { type: Number, default: 800 },
   height: { type: Number, default: 1000 },
   priority: { type: Boolean, default: false },
@@ -28,6 +29,7 @@ defineProps({
         v-if="src"
         :src="src"
         :alt="alt"
+        :style="position ? { objectPosition: position } : undefined"
         :width="width"
         :height="height"
         :loading="priority ? 'eager' : 'lazy'"

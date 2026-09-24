@@ -1,7 +1,7 @@
 // Restaurant facts live here and only here. Components never hand-type these.
 export const site = {
   name: 'Spice Dine',
-  orderUrl: 'https://spicedine.yumbojumbo.com.au',
+  orderUrl: 'https://spicedine.yumbojumbo.com.au/menu',
   phone: '(07) 3272 1754',
   phoneHref: 'tel:+61732721754',
   email: 'hello@example.com', // PLACEHOLDER

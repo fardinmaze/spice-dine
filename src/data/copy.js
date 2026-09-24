@@ -18,7 +18,7 @@ export const copy = {
       title: "Dhaka's favourites, on Ipswich Road.",
       lead: 'Bangladeshi curries, tehari and street food, plus halal kebabs and snack packs. Eat in, take away or order online.',
       badge: 'Loved by Brisbane locals',
-      image: { src: null, alt: 'Goat tehari served on a steel plate', label: 'Hero dish photo' }, // PLACEHOLDER
+      image: { src: '/images/dishes/tehari-feast-hero.webp', alt: 'Beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun on a dark table', label: 'Hero dish photo', position: 'center 62%' }, // PLACEHOLDER photo from the client's "Items Image" folder
       avatars: [
         { src: null, alt: '' },
         { src: null, alt: '' },

@@ -49,10 +49,11 @@ onMounted(() => requestAnimationFrame(() => (loaded.value = true)))
           :src="hero.image.src"
           :alt="hero.image.alt"
           :label="hero.image.label"
+          :position="hero.image.position"
           ratio="16 / 9"
           ratio-mobile="4 / 5"
-          :width="1600"
-          :height="900"
+          :width="1122"
+          :height="1402"
           priority
         />
       </div>
