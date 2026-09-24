@@ -78,7 +78,6 @@ const year = new Date().getFullYear()
 <style scoped>
 .footer {
   position: relative;
-  margin-top: 64px;
   padding-block: var(--space-12) var(--space-8);
   background: var(--surface-soft);
 }
