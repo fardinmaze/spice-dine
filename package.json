@@ -9,19 +9,13 @@
     "lint": "oxlint",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "@samasante/liquid-glass": "^0.1.1",
-    "animejs": "^4.5.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
-  },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.7",
-    "@vitejs/plugin-react": "^6.1.1",
+    "@vitejs/plugin-vue": "^6.0.9",
     "oxlint": "^1.81.0",
-    "tailwindcss": "^4.3.3",
     "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "vue": "^3.5.43",
+    "vue-router": "^4.6.4"
   }
 }

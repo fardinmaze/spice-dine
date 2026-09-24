@@ -1,0 +1,77 @@
+:root {
+  /* Brand */
+  --c-royal: #9B1C31;        /* Royal Red – brand, primary buttons, active tab pill, heading accents */
+  --c-royal-700: #7C1426;    /* hover / pressed */
+  --c-royal-50: #FBEEEE;     /* soft tinted sections, chip backgrounds */
+  --c-turmeric: #F4B000;     /* joyful highlight: squiggles, badges, marquee band. Never a button background */
+  --c-leaf: #2F6B3A;         /* "Vegetarian" tag and "Open now" dot only */
+
+  /* Neutrals */
+  --c-bg: #FFFBF8;
+  --c-white: #FFFFFF;
+  --c-ink: #221416;
+  --c-muted: #5E4B4E;
+
+  /* Semantic – components use ONLY these */
+  --bg: var(--c-bg);
+  --surface: var(--c-white);
+  --surface-soft: var(--c-royal-50);
+  --surface-brand: var(--c-royal);
+  --text: var(--c-ink);
+  --text-muted: var(--c-muted);
+  --text-on-brand: var(--c-white);
+  --action: var(--c-royal);
+  --action-hover: var(--c-royal-700);
+  --highlight: var(--c-turmeric);
+  --leaf: var(--c-leaf);
+  --line: color-mix(in srgb, var(--c-ink) 12%, transparent);
+  --focus-ring: var(--c-royal);
+
+  /* Type */
+  --font-display: 'Shrikhand', 'Georgia', serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-bangla: 'Tiro Bangla', 'Noto Sans Bengali', serif;
+  --fs-hero: clamp(2.75rem, 1.05rem + 6.9vw, 6rem);
+  --fs-h2: clamp(2.125rem, 1.35rem + 3.2vw, 3.75rem);
+  --fs-h3: clamp(1.25rem, 1.07rem + 0.75vw, 1.625rem);
+  --fs-dish: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --fs-body: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
+  --fs-bangla: clamp(0.9375rem, 0.92rem + 0.1vw, 1rem);
+  --fs-small: 0.875rem;
+
+  /* Space */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-6: 1.5rem;  --space-8: 2rem;   --space-12: 3rem;   --space-16: 4rem;
+  --section-y: clamp(4rem, 2.5rem + 6vw, 8rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+  --container: 1200px;
+
+  /* Shape */
+  --radius-pill: 999px;
+  --radius-card: 28px;
+  --radius-media: 24px;
+  --radius-sm: 12px;
+  --shadow-soft: 0 12px 32px -16px rgb(34 20 22 / 0.18);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 380ms;
+  --dur-slow: 800ms;
+
+  /* Layers */
+  --z-sticky: 40;
+  --z-header: 50;
+  --z-actionbar: 60;
+  --z-overlay: 70;
+  --header-h: 72px;
+  --tabs-h: 64px;
+
+  /* Top edge for sticky elements: follows the header's hide/show */
+  --sticky-top: var(--header-h);
+}
+
+:root[data-header='hidden'] {
+  --sticky-top: 0px;
+}

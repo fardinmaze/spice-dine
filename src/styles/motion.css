@@ -1,0 +1,60 @@
+/* v-reveal: headings and images only. The directive adds .reveal, then .is-revealed once in view. */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance, 24px));
+  transition:
+    opacity var(--dur-slow) var(--ease-out) var(--reveal-delay, 0ms),
+    transform var(--dur-slow) var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Route change fade */
+.route-fade-enter-active,
+.route-fade-leave-active {
+  transition: opacity 250ms var(--ease-in-out);
+}
+
+.route-fade-enter-from,
+.route-fade-leave-to {
+  opacity: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .route-fade-enter-active,
+  .route-fade-leave-active {
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  /* Spinners still need to show activity */
+  .spinner {
+    animation-duration: 1.2s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
