@@ -10,7 +10,7 @@ const routes = [
     component: HomePage,
     meta: {
       title: 'Spice Dine | Bangladeshi restaurant in Woolloongabba',
-      description: 'Authentic halal Bangladeshi food on Ipswich Road, Woolloongabba. Tehari, kala bhuna, street food, kebabs and snack packs. Order online for pickup or delivery.',
+      description: 'Halal Bangladeshi restaurant on Ipswich Road, Woolloongabba. Curries, biryani, kebabs and snack packs. Dine in, takeaway, delivery and catering.',
     },
   },
   {

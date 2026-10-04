@@ -30,13 +30,11 @@
   /* Type */
   --font-display: 'Shrikhand', 'Georgia', serif;
   --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-bangla: 'Tiro Bangla', 'Noto Sans Bengali', serif;
   --fs-hero: clamp(2.75rem, 1.05rem + 6.9vw, 6rem);
   --fs-h2: clamp(2.125rem, 1.35rem + 3.2vw, 3.75rem);
   --fs-h3: clamp(1.25rem, 1.07rem + 0.75vw, 1.625rem);
   --fs-dish: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --fs-body: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
-  --fs-bangla: clamp(0.9375rem, 0.92rem + 0.1vw, 1rem);
   --fs-small: 0.875rem;
 
   /* Space */

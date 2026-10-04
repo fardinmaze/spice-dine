@@ -78,10 +78,6 @@ select {
   color: inherit;
 }
 
-[lang='bn'] {
-  font-family: var(--font-bangla);
-}
-
 :focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 3px;

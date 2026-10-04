@@ -5,7 +5,7 @@ import AppIcon from './AppIcon.vue'
 // Infinite ticker. Two identical groups slide by -50%; the second is aria-hidden.
 // Under reduced motion it becomes one static, wrapped row.
 const props = defineProps({
-  items: { type: Array, required: true }, // [{ text, lang? }]
+  items: { type: Array, required: true }, // [{ text }]
   label: { type: String, required: true },
   variant: { type: String, default: 'band', validator: (v) => ['band', 'ticker'].includes(v) },
   duration: { type: Number, default: 36 }, // seconds per loop
@@ -23,7 +23,7 @@ const loop = computed(() =>
     <div class="marquee__track">
       <ul v-for="copy in 2" :key="copy" class="marquee__group" role="list" :aria-hidden="copy === 2 ? 'true' : undefined">
         <li v-for="(item, i) in loop" :key="item.key" class="marquee__item" :class="{ 'is-repeat': item.repeat }">
-          <span :lang="item.lang">{{ item.text }}</span>
+          <span>{{ item.text }}</span>
           <span class="marquee__sep" aria-hidden="true">
             <AppIcon v-if="variant === 'band'" :name="icons[i % icons.length]" :size="30" />
             <template v-else>✦</template>
@@ -47,8 +47,8 @@ const loop = computed(() =>
   animation: marquee var(--duration) linear infinite;
 }
 
-.marquee:hover .marquee__track {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .marquee:hover .marquee__track { animation-play-state: paused; }
 }
 
 .marquee__group {
@@ -70,11 +70,6 @@ const loop = computed(() =>
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3.25rem);
   line-height: 1.2;
-}
-
-.marquee--band [lang='bn'] {
-  font-family: var(--font-bangla);
-  font-weight: 700;
 }
 
 .marquee--band .marquee__sep {

@@ -3,6 +3,7 @@ import BaseButton from '../ui/BaseButton.vue'
 import { nav, site } from '../../config/site'
 import { copy } from '../../data/copy'
 import { summariseHours } from '../../utils/hours'
+import { openOverlay } from '../../composables/useOverlays'
 
 const hours = summariseHours(site.hours)
 const year = new Date().getFullYear()
@@ -51,6 +52,7 @@ const year = new Date().getFullYear()
             <li>
               <a :href="site.orderUrl" target="_blank" rel="noopener">{{ copy.cta.order }}<span class="visually-hidden"> (opens in a new tab)</span></a>
             </li>
+            <li><button type="button" class="footer__link" @click="openOverlay('catering')">{{ copy.cta.catering }}</button></li>
             <li><a :href="site.phoneHref">{{ copy.cta.call }}</a></li>
             <li>
               <a :href="site.mapsUrl" target="_blank" rel="noopener">{{ copy.cta.directions }}<span class="visually-hidden"> (opens in a new tab)</span></a>
@@ -176,6 +178,18 @@ address {
 
 .footer__col a:not(.btn) {
   text-decoration: none;
+}
+
+.footer__link {
+  padding: var(--space-1) 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .footer__link:hover { color: var(--action); }
 }
 
 .footer__bottom {

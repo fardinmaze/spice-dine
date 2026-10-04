@@ -10,13 +10,14 @@ export const copy = {
     contact: 'Contact us',
     email: 'Email us',
     home: 'Back to home',
+    catering: 'Catering enquiry',
   },
 
   home: {
     hero: {
-      intro: 'Authentic Bangladeshi · Halal', // PLACEHOLDER
-      title: "Dhaka's favourites, on Ipswich Road.",
-      lead: 'Bangladeshi curries, tehari and street food, plus halal kebabs and snack packs. Eat in, take away or order online.',
+      intro: 'Halal Bangladeshi kitchen · Woolloongabba', // PLACEHOLDER
+      title: 'Big flavour, cooked fresh in the Gabba.',
+      lead: 'Slow-cooked curries, biryani and tehari, chargrilled kebabs and loaded snack packs. Dine in, grab takeaway or order online for pickup or delivery.',
       badge: 'Loved by Brisbane locals',
       image: { src: '/images/dishes/tehari-feast-hero.webp', alt: 'Beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun on a dark table', label: 'Hero dish photo', position: 'center 62%' }, // PLACEHOLDER photo from the client's "Items Image" folder
       avatars: [
@@ -27,27 +28,43 @@ export const copy = {
     },
     menu: {
       title: 'Our menu',
-      lead: 'Everything is halal. Tell us about allergies when you order.',
+      lead: 'Everything is halal. Let us know about any allergies when you order.',
       tabsLabel: 'Menu categories',
+      onDemand: {
+        title: 'On Demand dishes',
+        body: 'Some dishes are slow-cooked to order. Order today, pick up or dine in tomorrow.',
+      },
     },
     menuCta: { title: 'Hungry already?' },
+    catering: {
+      intro: 'Catering available',
+      title: 'Feeding a crowd? We can cater it.',
+      lead: "Office lunches, birthdays, Eid and family get-togethers. Tell us your date, numbers and favourite dishes and we'll come back to you with a quote. Large orders and pre-orders go through catering too.",
+      points: [
+        'Trays of biryani, curries and kebabs',
+        'Halal, with vegetarian options',
+        'Pickup or delivery around Brisbane',
+      ], // PLACEHOLDER – confirm what the client offers
+      phoneLabel: 'Or call us on',
+      image: { src: '/images/dishes/tehari-feast.webp', alt: 'A spread of beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun', label: 'Catering spread photo' }, // PLACEHOLDER photo
+    },
     aboutTeaser: {
       intro: 'Crafted with love',
-      title: 'Home cooking from Dhaka, since [year]', // PLACEHOLDER year – confirm with client
+      title: 'Family recipes, cooked fresh since [year]', // PLACEHOLDER year – confirm with client
     },
     reviews: { title: 'What our guests say' },
     faq: {
       title: 'Questions',
       lead: "Can't find what you're after? Give us a call or send a message.",
     },
-    visit: { title: 'Come and eat with us' },
+    visit: { title: 'Come and eat with us', hours: 'Opening hours' },
   },
 
   about: {
     hero: {
       intro: 'Spice Dine, Woolloongabba', // PLACEHOLDER
       title: 'Our story',
-      lead: 'A family kitchen on Ipswich Road cooking the food we grew up with in Dhaka.', // PLACEHOLDER
+      lead: 'A family kitchen on Ipswich Road cooking the Bangladeshi food we grew up with, for everyone in Brisbane to enjoy.', // PLACEHOLDER
       image: { src: null, alt: 'The Spice Dine kitchen team at work', label: 'Kitchen team photo' }, // PLACEHOLDER
     },
     values: { title: 'What we care about' },
@@ -60,23 +77,43 @@ export const copy = {
       title: 'Visit or get in touch',
       lead: "Drop in, call ahead or send us a message. For orders, use online ordering and we'll have it ready.",
     },
-    cards: { address: 'Address', phone: 'Phone', email: 'Email' },
+    cards: { address: 'Address', phone: 'Phone', email: 'Email', catering: 'Catering' },
+    cateringCard: 'Events, large orders and pre-orders',
     hours: { title: 'Opening hours' },
     form: {
       title: 'Send us a message',
-      lead: 'Catering, large orders or feedback. We read every message.',
-      success: "Message sent. We'll reply within one business day.",
-      error: "Couldn't send your message. Check your connection and try again, or call us on (07) 3272 1754.",
-      summary: 'Please fix the following before sending:',
-      submit: 'Send message',
-      fields: {
-        name: { label: 'Name', required: 'Enter your name.' },
-        email: { label: 'Email', required: 'Enter your email address.', invalid: 'Enter an email address like name@example.com.' },
-        phone: { label: 'Phone (optional)', invalid: 'Enter a phone number using digits, spaces or +.' },
-        message: { label: 'Message', required: 'Enter a message.', short: 'Your message needs at least 10 characters.' },
-      },
+      lead: 'Questions, feedback or anything else. We read every message. For catering, use the catering enquiry.',
     },
     faq: { title: 'Good to know' },
+  },
+
+  catering: {
+    title: 'Catering enquiry',
+    lead: "Tell us about your event and we'll get back to you within one business day.",
+    phonePrompt: 'Prefer to talk? Call',
+    close: 'Close',
+  },
+
+  cart: {
+    title: 'Your cart',
+    open: 'Cart',
+    add: 'Add to cart',
+    empty: "Your cart is empty. Browse the menu and add the dishes you'd like.",
+    subtotal: 'Subtotal',
+    pricesPending: 'Prices to be confirmed',
+    onDemandNote: 'Your cart includes On Demand dishes. Order today, pick up or dine in tomorrow.',
+    onDemandLine: 'Ready tomorrow',
+    proceed: 'Proceed to order',
+    clear: 'Clear cart',
+    back: 'Back to cart',
+    view: 'View cart',
+    // Shown when "Proceed to order" is pressed. Online checkout on this site is not live yet.
+    checkout: {
+      title: 'Ready to order?',
+      body: 'Checkout on this website is coming soon. Until then, you can place this order in one of two ways:',
+      online: 'Add the same dishes on our online ordering page and pay there.',
+      phone: "Call us, read out your list and we'll have it ready.",
+    },
   },
 
   notFound: {
@@ -85,7 +122,7 @@ export const copy = {
   },
 
   footer: {
-    statement: 'Dhaka on a plate, right here in the Gabba.', // PLACEHOLDER
+    statement: 'Fresh, halal and full of flavour, right here in the Gabba.', // PLACEHOLDER
     columns: { nav: 'Navigation', order: 'Order', social: 'Social' },
     hours: 'Hours',
   },

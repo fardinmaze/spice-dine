@@ -2,6 +2,7 @@
 import MenuTabsBar from './MenuTabsBar.vue'
 import MenuTabsIndex from './MenuTabsIndex.vue'
 import MenuCategory from './MenuCategory.vue'
+import AppIcon from '../ui/AppIcon.vue'
 import { menu } from '../../data/menu'
 import { copy } from '../../data/copy'
 import { useScrollSpy } from '../../composables/useScrollSpy'
@@ -23,6 +24,10 @@ const { active, scrollTo } = useScrollSpy(ids, { offset })
     <div class="container menu__intro">
       <h2 id="menu-title" v-reveal>{{ copy.home.menu.title }}</h2>
       <p class="lead">{{ copy.home.menu.lead }}</p>
+      <p class="on-demand">
+        <span class="on-demand__icon"><AppIcon name="clock" :size="22" /></span>
+        <span><strong>{{ copy.home.menu.onDemand.title }}.</strong> {{ copy.home.menu.onDemand.body }}</span>
+      </p>
     </div>
 
     <MenuTabsBar :categories="menu" :active="active" :label="copy.home.menu.tabsLabel" @select="scrollTo" />
@@ -46,6 +51,28 @@ const { active, scrollTo } = useScrollSpy(ids, { offset })
   display: grid;
   gap: var(--space-3);
   margin-bottom: var(--space-8);
+}
+
+.on-demand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 40rem;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-6) var(--space-3) var(--space-3);
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--highlight) 22%, var(--surface));
+}
+
+.on-demand__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--highlight);
+  color: var(--c-ink);
 }
 
 @media (min-width: 1200px) {

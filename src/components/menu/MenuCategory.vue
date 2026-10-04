@@ -9,7 +9,6 @@ defineProps({ category: { type: Object, required: true } })
   <section :id="`menu-${category.id}`" class="category" :aria-labelledby="`menu-${category.id}-title`">
     <header class="category__head">
       <h3 :id="`menu-${category.id}-title`" v-reveal>{{ category.title }}</h3>
-      <p class="category__bn" lang="bn">{{ category.titleBn }}</p>
     </header>
 
     <div class="category__body">
@@ -58,11 +57,6 @@ defineProps({ category: { type: Object, required: true } })
 .category__head h3 {
   font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
   color: var(--action);
-}
-
-.category__bn {
-  font-size: var(--fs-body);
-  color: var(--text-muted);
 }
 
 .category__body {

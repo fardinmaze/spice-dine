@@ -14,13 +14,14 @@ export const site = {
     mon: ['11:30', '21:00'], tue: ['11:30', '21:00'], wed: ['11:30', '21:00'],
     thu: ['11:30', '21:00'], fri: ['11:30', '23:00'], sat: ['11:30', '23:00'], sun: ['11:30', '21:00'],
   },
-  announcement: ['Order online for pickup or delivery', 'Halal kitchen', 'Open 7 days'], // PLACEHOLDER copy
+  announcement: ['Order online for pickup or delivery', 'Catering available', 'Halal kitchen', 'Open 7 days'], // PLACEHOLDER copy
   socials: [{ label: 'Facebook', href: '#' }, { label: 'Instagram', href: '#' }], // PLACEHOLDER
 }
 
 export const nav = [
-  { label: 'Home', to: '/' },
   { label: 'Menu', to: { path: '/', hash: '#menu' } },
+  { label: 'Catering', to: { path: '/', hash: '#catering' } },
+  { label: 'Hours & location', to: { path: '/', hash: '#visit' } },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]

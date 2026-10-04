@@ -3,6 +3,8 @@ import { nextTick, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import BaseButton from '../ui/BaseButton.vue'
 import AppIcon from '../ui/AppIcon.vue'
+import CartButton from '../cart/CartButton.vue'
+import { openOverlay } from '../../composables/useOverlays'
 import { nav, site } from '../../config/site'
 import { copy } from '../../data/copy'
 import { useHeaderState } from '../../composables/useHeaderState'
@@ -16,10 +18,20 @@ const panel = ref(null)
 const header = ref(null)
 const panelTop = ref('var(--header-h)')
 
+// Hash items (Menu, Catering, Hours) are active when their hash is in the URL;
+// page items only when no hash item matches. Menu also covers its #menu-<category> hashes.
+const hashOf = (item) => (typeof item.to === 'string' ? '' : item.to.hash ?? '')
+const pathOf = (item) => (typeof item.to === 'string' ? item.to : item.to.path)
 const isActive = (item) => {
-  const to = typeof item.to === 'string' ? { path: item.to } : item.to
-  if (to.hash) return route.path === to.path && route.hash.startsWith(to.hash)
-  return route.path === to.path && !route.hash.startsWith('#menu')
+  if (route.path !== pathOf(item)) return false
+  const hash = hashOf(item)
+  if (hash) return route.hash === hash || route.hash.startsWith(`${hash}-`)
+  return !nav.some((other) => hashOf(other) && route.path === pathOf(other) && route.hash.startsWith(hashOf(other)))
+}
+
+function openCatering() {
+  toggle(false)
+  openOverlay('catering')
 }
 
 async function toggle(value = !open.value) {
@@ -55,6 +67,7 @@ watch(() => route.fullPath, () => open.value && toggle(false))
 
       <div class="header__actions">
         <BaseButton :label="copy.cta.order" :href="site.orderUrl" external size="sm" class="header__order" />
+        <CartButton />
         <button
           ref="burger"
           class="burger"
@@ -82,7 +95,8 @@ watch(() => route.fullPath, () => open.value && toggle(false))
         </nav>
         <div class="mobile-panel__actions">
           <BaseButton :label="copy.cta.order" :href="site.orderUrl" external size="lg" block />
-          <BaseButton :label="copy.cta.call" :href="site.phoneHref" icon="phone" variant="secondary" size="lg" block />
+          <BaseButton :label="copy.cta.catering" icon="arrow" variant="secondary" size="lg" block @click="openCatering" />
+          <BaseButton :label="`${copy.cta.call} ${site.phone}`" :href="site.phoneHref" icon="phone" variant="secondary" size="lg" block />
         </div>
       </div>
     </Transition>
@@ -242,12 +256,12 @@ watch(() => route.fullPath, () => open.value && toggle(false))
   transform: translateY(-12px);
 }
 
-@media (max-width: 380px) {
-  .header__order :deep(.btn__icon) { display: none; }
-  .header__order { padding-right: 1.125rem; }
+/* Phones: Order online lives in the action bar and menu panel, keeping room for the cart */
+@media (max-width: 519px) {
+  .header__order { display: none; }
 }
 
-@media (min-width: 810px) {
+@media (min-width: 1024px) {
   .header__nav { display: block; }
   .burger { display: none; }
   .mobile-panel { display: none !important; }

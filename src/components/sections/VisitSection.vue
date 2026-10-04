@@ -20,7 +20,10 @@ import { copy } from '../../data/copy'
           <span>{{ site.address }}</span>
         </p>
 
-        <HoursTable tone="on-brand" />
+        <div class="visit__hours">
+          <h3>{{ copy.home.visit.hours }}</h3>
+          <HoursTable tone="on-brand" />
+        </div>
 
         <div class="visit__actions">
           <BaseButton :label="copy.cta.order" :href="site.orderUrl" external variant="on-brand" />
@@ -47,7 +50,10 @@ import { copy } from '../../data/copy'
   gap: var(--space-6);
 }
 
-.visit__info > :deep(table) {
+.visit__hours {
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
   max-width: 30rem;
 }
 

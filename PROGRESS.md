@@ -9,6 +9,18 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 
 ---
 
+## 2026-10-04: Client feedback round 1
+Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla names, no-cart rule).
+- Removed the "Dhaka's favourites" headline; new hero: "Big flavour, cooked fresh in the Gabba."
+- Removed all Bangla text (dish/category names, marquee) and the Tiro Bangla font. English only.
+- No separate pre-order option existed; pre-orders and large orders are now covered by Catering.
+- Catering: Home section `#catering` ("Catering available", phone, Catering enquiry button), enquiry form in a dialog (name, phone, email, date, guests, pickup/delivery, details), also reachable from the nav, mobile menu, footer and a 4th Contact card. Posts to `VITE_CATERING_ENDPOINT` (falls back to the contact endpoint).
+- On Demand: `'on-demand'` tag on Kacchi Biryani, Shorshe Ilish, Haleem (PLACEHOLDER choice), notice at the top of the menu, FAQ entry, "Ready tomorrow" in the cart.
+- Cart: Add to cart on every dish, quantity stepper, header cart button with count, drawer to review items, saved in localStorage. "Proceed to order" currently offers Yumbo Jumbo or a phone call, because checkout on this site isn't live yet.
+- Nav: Menu · Catering · Hours & location · About · Contact (desktop nav from 1024px). Mobile action bar becomes "View cart (n)" once the cart has items.
+- `ContactForm.vue` replaced by the shared `EnquiryForm.vue`; form wording lives in `src/data/forms.js`.
+- Checked in headless Chrome at 1440px and 360px, plus the cart drawer and catering dialog.
+
 ## 2026-09-24
 
 ### Stack change

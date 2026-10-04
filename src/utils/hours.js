@@ -48,3 +48,11 @@ export function summariseHours(hours) {
   }
   return groups.map((g) => ({ days: g.end ? `${g.start}–${g.end}` : g.start, range: g.range }))
 }
+
+// 'YYYY-MM-DD' for today (+ offset days) in the restaurant's timezone, for <input type="date"> min values
+export function dateIn(timezone, offsetDays = 0) {
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: timezone }).format(new Date())
+  const date = new Date(`${today}T00:00:00Z`)
+  date.setUTCDate(date.getUTCDate() + offsetDays)
+  return date.toISOString().slice(0, 10)
+}

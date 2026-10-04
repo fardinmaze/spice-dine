@@ -1,6 +1,6 @@
 <script setup>
 import PageHero from '../components/sections/PageHero.vue'
-import ContactForm from '../components/sections/ContactForm.vue'
+import EnquiryForm from '../components/ui/EnquiryForm.vue'
 import FaqSection from '../components/sections/FaqSection.vue'
 import BaseButton from '../components/ui/BaseButton.vue'
 import AppIcon from '../components/ui/AppIcon.vue'
@@ -10,6 +10,9 @@ import MapEmbed from '../components/ui/MapEmbed.vue'
 import { faqs, contactFaqIds } from '../data/faqs'
 import { site } from '../config/site'
 import { copy } from '../data/copy'
+import { contactForm } from '../data/forms'
+import { sendContactMessage } from '../services/contact'
+import { openOverlay } from '../composables/useOverlays'
 
 const c = copy.contact
 const contactFaqs = faqs.filter((q) => contactFaqIds.includes(q.id))
@@ -18,6 +21,7 @@ const cards = [
   { icon: 'pin', title: c.cards.address, value: site.address, action: { label: copy.cta.directions, href: site.mapsUrl, external: true } },
   { icon: 'phone', title: c.cards.phone, value: site.phone, action: { label: copy.cta.call, href: site.phoneHref, icon: 'phone' } },
   { icon: 'mail', title: c.cards.email, value: site.email, action: { label: copy.cta.email, href: `mailto:${site.email}`, icon: 'arrow' } }, // email is PLACEHOLDER
+  { icon: 'users', title: c.cards.catering, value: c.cateringCard, action: { label: copy.cta.catering, icon: 'arrow', onClick: () => openOverlay('catering') } },
 ]
 </script>
 
@@ -38,6 +42,8 @@ const cards = [
             :icon="card.action.icon"
             variant="secondary"
             size="sm"
+            class="card__action"
+            @click="card.action.onClick?.()"
           />
         </li>
       </ul>
@@ -61,7 +67,7 @@ const cards = [
           <p class="lead">{{ c.form.lead }}</p>
           <BaseButton :label="copy.cta.order" :href="site.orderUrl" external variant="ghost-link" />
         </div>
-        <ContactForm />
+        <EnquiryForm :form="contactForm" :send="sendContactMessage" />
       </div>
     </section>
 
@@ -78,8 +84,8 @@ const cards = [
 
 .card {
   display: grid;
+  grid-template-rows: auto auto 1fr auto;
   justify-items: start;
-  align-content: start;
   gap: var(--space-2);
   padding: clamp(1.5rem, 1rem + 2vw, 2rem);
   border-radius: var(--radius-card);
@@ -114,8 +120,12 @@ const cards = [
   overflow-wrap: anywhere;
 }
 
-@media (min-width: 810px) {
-  .cards__grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+@media (min-width: 640px) {
+  .cards__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+}
+
+@media (min-width: 1200px) {
+  .cards__grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .visit-grid,
