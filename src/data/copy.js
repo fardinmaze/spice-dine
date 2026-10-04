@@ -33,6 +33,7 @@ export const copy = {
       onDemand: {
         title: 'On Demand dishes',
         body: 'Some dishes are slow-cooked to order. Order today, pick up or dine in tomorrow.',
+        link: 'See On Demand dishes',
       },
     },
     menuCta: { title: 'Hungry already?' },

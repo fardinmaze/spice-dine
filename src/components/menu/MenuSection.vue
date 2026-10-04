@@ -3,7 +3,7 @@ import MenuTabsBar from './MenuTabsBar.vue'
 import MenuTabsIndex from './MenuTabsIndex.vue'
 import MenuCategory from './MenuCategory.vue'
 import AppIcon from '../ui/AppIcon.vue'
-import { menu } from '../../data/menu'
+import { menu, ON_DEMAND_ID } from '../../data/menu'
 import { copy } from '../../data/copy'
 import { useScrollSpy } from '../../composables/useScrollSpy'
 
@@ -26,7 +26,10 @@ const { active, scrollTo } = useScrollSpy(ids, { offset })
       <p class="lead">{{ copy.home.menu.lead }}</p>
       <p class="on-demand">
         <span class="on-demand__icon"><AppIcon name="clock" :size="22" /></span>
-        <span><strong>{{ copy.home.menu.onDemand.title }}.</strong> {{ copy.home.menu.onDemand.body }}</span>
+        <span>
+          <strong>{{ copy.home.menu.onDemand.title }}.</strong> {{ copy.home.menu.onDemand.body }}
+          <a :href="`#menu-${ON_DEMAND_ID}`" class="on-demand__link" @click.prevent="scrollTo(`menu-${ON_DEMAND_ID}`)">{{ copy.home.menu.onDemand.link }}</a>
+        </span>
       </p>
     </div>
 
@@ -62,6 +65,14 @@ const { active, scrollTo } = useScrollSpy(ids, { offset })
   padding: var(--space-3) var(--space-6) var(--space-3) var(--space-3);
   border-radius: var(--radius-card);
   background: color-mix(in srgb, var(--highlight) 22%, var(--surface));
+}
+
+.on-demand__link {
+  margin-left: var(--space-1);
+  color: var(--action);
+  font-weight: 700;
+  white-space: nowrap;
+  text-underline-offset: 3px;
 }
 
 .on-demand__icon {

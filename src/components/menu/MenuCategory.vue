@@ -1,6 +1,7 @@
 <script setup>
 import DishRow from './DishRow.vue'
 import PlaceholderImage from '../ui/PlaceholderImage.vue'
+import AppIcon from '../ui/AppIcon.vue'
 
 defineProps({ category: { type: Object, required: true } })
 </script>
@@ -9,6 +10,10 @@ defineProps({ category: { type: Object, required: true } })
   <section :id="`menu-${category.id}`" class="category" :aria-labelledby="`menu-${category.id}-title`">
     <header class="category__head">
       <h3 :id="`menu-${category.id}-title`" v-reveal>{{ category.title }}</h3>
+      <p v-if="category.note" class="category__note">
+        <AppIcon name="clock" :size="18" />
+        {{ category.note }}
+      </p>
     </header>
 
     <div class="category__body">
@@ -57,6 +62,17 @@ defineProps({ category: { type: Object, required: true } })
 .category__head h3 {
   font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
   color: var(--action);
+}
+
+.category__note {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.25rem 0.875rem 0.25rem 0.625rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--highlight) 28%, var(--surface));
+  font-size: var(--fs-small);
+  font-weight: 600;
 }
 
 .category__body {

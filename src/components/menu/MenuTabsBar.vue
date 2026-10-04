@@ -146,10 +146,11 @@ watch(() => props.active, () => measure())
     width var(--dur-base) var(--ease-in-out);
 }
 
+/* Wide screens: the bar lines up with the content. Tighter tabs keep all 8 in view on laptops;
+   the edge fade stays so any overflow still reads as scrollable. */
 @media (min-width: 1200px) {
-  .tabs__scroller {
-    -webkit-mask-image: none;
-    mask-image: none;
+  .tabs__tab {
+    padding-inline: 0.875rem;
   }
 
   .tabs__track {

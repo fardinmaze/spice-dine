@@ -1,7 +1,7 @@
 // ALL ITEMS ARE PLACEHOLDERS – replace with the client's menu before launch.
 // price: 0 renders as "$—.—".
-// tags: 'spicy' | 'vegetarian' | 'nuts' | 'popular' | 'on-demand'
-// 'on-demand' = made to order, one day ahead. Which dishes need it is a PLACEHOLDER – confirm with the client.
+// tags: 'spicy' | 'vegetarian' | 'nuts' | 'popular'
+// Dishes in the 'on-demand' category are made to order, one day ahead. Which dishes belong there is a PLACEHOLDER – confirm with the client.
 
 // Photos in public/images/dishes/ are temporary (originals in source-images/Items Image); src: null renders a placeholder.
 const img = (caption, alt, src = null) => ({ src: src && `/images/dishes/${src}.webp`, alt, caption })
@@ -18,7 +18,6 @@ export const menu = [
       { name: 'Goat Tehari', price: 0, desc: 'Fragrant rice cooked with goat, mustard oil and green chilli.', tags: ['popular'], placeholder: true },
       { name: 'Beef Tehari', price: 0, desc: 'Short-grain rice slow-cooked with beef, whole spices and ghee.', tags: [], placeholder: true },
       { name: 'Polau & Chicken Roast', price: 0, desc: 'Buttery polau with a rich, sweet-savoury chicken roast.', tags: ['popular'], placeholder: true },
-      { name: 'Kacchi Biryani', price: 0, desc: 'Marinated goat and potato layered with rice and sealed to cook.', tags: ['on-demand'], placeholder: true },
       { name: 'Chicken Fry & Fried Rice', price: 0, desc: 'Crumbed fried chicken with vegetable fried rice.', tags: [], placeholder: true },
       { name: 'Vegetable Khichuri', price: 0, desc: 'Rice and lentils cooked soft with seasonal vegetables.', tags: ['vegetarian'], placeholder: true },
     ],
@@ -27,14 +26,13 @@ export const menu = [
     id: 'curries-bhuna',
     title: 'Curries & Bhuna',
     images: [
-      img('Shorshe ilish with rice and lassi', 'Hilsa steaks in mustard curry with a bowl of rice and a banana lassi', 'hilsa-mustard-curry'),
       img('Chicken curry with potato', 'Chicken drumsticks and potato in a rich curry, topped with coriander, in a white bowl', 'chicken-curry-potato'),
+      img('Beef kala bhuna', 'Dark, slow-fried beef kala bhuna in a bowl'),
     ],
     items: [
       { name: 'Beef Kala Bhuna', price: 0, desc: 'Beef slow-fried with onion and roasted spices until almost black.', tags: ['spicy', 'popular'], placeholder: true },
       { name: 'Goat Curry', price: 0, desc: 'Bone-in goat in a thin, peppery gravy with potato.', tags: ['spicy'], placeholder: true },
       { name: 'Chicken Curry', price: 0, desc: 'Home-style chicken curry with potato, ginger and garlic.', tags: [], placeholder: true },
-      { name: 'Shorshe Ilish', price: 0, desc: 'Hilsa steaks cooked in mustard paste, green chilli and mustard oil.', tags: ['spicy', 'on-demand'], placeholder: true },
       { name: 'Chicken Rezala', price: 0, desc: 'Mild, creamy curry with yoghurt, cashew and cardamom.', tags: ['nuts'], placeholder: true },
       { name: 'Dal Bhuna', price: 0, desc: 'Red lentils fried down with garlic, cumin and dried chilli.', tags: ['vegetarian'], placeholder: true },
     ],
@@ -49,7 +47,6 @@ export const menu = [
     items: [
       { name: 'Fuchka', price: 0, desc: 'Crisp shells filled with spiced potato and chickpea, with tamarind water.', tags: ['vegetarian', 'spicy', 'popular'], placeholder: true },
       { name: 'Chotpoti', price: 0, desc: 'Warm yellow peas with potato, egg, onion and tamarind.', tags: ['spicy'], placeholder: true },
-      { name: 'Haleem', price: 0, desc: 'Slow-cooked beef, lentils and wheat, topped with fried onion.', tags: ['popular', 'on-demand'], placeholder: true },
       { name: 'Mughlai Paratha', price: 0, desc: 'Flaky paratha stuffed with spiced mince and egg.', tags: [], placeholder: true },
       { name: 'Singara', price: 0, desc: 'Pastry parcels of spiced potato and peanut.', tags: ['vegetarian', 'nuts'], placeholder: true },
       { name: 'Beguni', price: 0, desc: 'Eggplant slices fried in a chickpea batter.', tags: ['vegetarian'], placeholder: true },
@@ -116,6 +113,20 @@ export const menu = [
       { name: 'Mishti Doi', price: 0, desc: 'Sweet set yoghurt with caramelised milk.', tags: ['vegetarian'], placeholder: true },
     ],
   },
+  {
+    id: 'on-demand',
+    title: 'On Demand',
+    note: 'Slow-cooked to order. Order today, pick up or dine in tomorrow.',
+    images: [
+      img('Shorshe ilish with rice and lassi', 'Hilsa steaks in mustard curry with a bowl of rice and a banana lassi', 'hilsa-mustard-curry'),
+      img('Kacchi biryani, sealed and slow-cooked', 'A pot of kacchi biryani with goat and potato'),
+    ],
+    items: [
+      { name: 'Kacchi Biryani', price: 0, desc: 'Marinated goat and potato layered with rice and sealed to cook.', tags: [], placeholder: true },
+      { name: 'Shorshe Ilish', price: 0, desc: 'Hilsa steaks cooked in mustard paste, green chilli and mustard oil.', tags: ['spicy'], placeholder: true },
+      { name: 'Haleem', price: 0, desc: 'Slow-cooked beef, lentils and wheat, topped with fried onion.', tags: ['popular'], placeholder: true },
+    ],
+  },
 ]
 
 // Stable ids for the cart: '<category>/<dish-slug>'
@@ -126,7 +137,9 @@ for (const category of menu) {
 
 export const dishesById = new Map(menu.flatMap((c) => c.items.map((dish) => [dish.id, dish])))
 
-export const isOnDemand = (dish) => dish.tags.includes('on-demand')
+export const ON_DEMAND_ID = 'on-demand'
+const onDemandIds = new Set(menu.find((c) => c.id === ON_DEMAND_ID)?.items.map((d) => d.id))
+export const isOnDemand = (dish) => onDemandIds.has(dish.id)
 
 // Marquee band
 export const marqueeDishes = [
@@ -145,7 +158,6 @@ export const tagLabels = {
   vegetarian: 'Vegetarian',
   nuts: 'Contains nuts',
   popular: 'Popular',
-  'on-demand': 'On Demand',
 }
 
 export const formatPrice = (price) => (price ? `$${price.toFixed(2)}` : '$—.—')
