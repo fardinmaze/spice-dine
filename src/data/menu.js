@@ -3,7 +3,7 @@
 // tags: 'spicy' | 'vegetarian' | 'nuts' | 'popular' | 'on-demand'
 // 'on-demand' = made to order, one day ahead. Which dishes need it is a PLACEHOLDER – confirm with the client.
 
-// Photos in public/images/dishes/ are temporary (from the client's "Items Image" folder); src: null renders a placeholder.
+// Photos in public/images/dishes/ are temporary (originals in source-images/Items Image); src: null renders a placeholder.
 const img = (caption, alt, src = null) => ({ src: src && `/images/dishes/${src}.webp`, alt, caption })
 
 export const menu = [
@@ -28,7 +28,7 @@ export const menu = [
     title: 'Curries & Bhuna',
     images: [
       img('Shorshe ilish with rice and lassi', 'Hilsa steaks in mustard curry with a bowl of rice and a banana lassi', 'hilsa-mustard-curry'),
-      img('Chicken curry with potato', 'Chicken curry in a bowl with rice'),
+      img('Chicken curry with potato', 'Chicken drumsticks and potato in a rich curry, topped with coriander, in a white bowl', 'chicken-curry-potato'),
     ],
     items: [
       { name: 'Beef Kala Bhuna', price: 0, desc: 'Beef slow-fried with onion and roasted spices until almost black.', tags: ['spicy', 'popular'], placeholder: true },
@@ -43,8 +43,8 @@ export const menu = [
     id: 'street-food',
     title: 'Street Food & Snacks',
     images: [
-      img('Fuchka, filled to order', 'Fuchka shells with tamarind water'),
-      img('Chotpoti with egg and tamarind', 'A bowl of chotpoti topped with egg'),
+      img('Fuchka, filled to order', 'Filled fuchka shells around a glass of tamarind water, with bowls of chickpeas, tomato, coriander and spices', 'fuchka-platter'),
+      img('Chotpoti with egg and tamarind', 'A large bowl of chotpoti with chickpeas, crushed egg and crisp pieces, with tamarind sauce on the side', 'chotpoti'),
     ],
     items: [
       { name: 'Fuchka', price: 0, desc: 'Crisp shells filled with spiced potato and chickpea, with tamarind water.', tags: ['vegetarian', 'spicy', 'popular'], placeholder: true },
@@ -89,8 +89,8 @@ export const menu = [
     id: 'breads-sides',
     title: 'Breads & Sides',
     images: [
-      img('Paratha, layered and flaky', 'A stack of paratha'),
-      img('Raita and salad', 'Small bowls of raita and cucumber salad'),
+      img('Paratha with spiced potato', 'Hands tearing a flaky layered paratha, with a bowl of spiced potato', 'paratha-aloo'),
+      img('Raita and salad', 'A bowl of raita with peas beside an onion, tomato and capsicum salad, with folded flatbreads', 'raita-and-salad'),
     ],
     items: [
       { name: 'Paratha', price: 0, desc: 'Flaky, layered flatbread cooked on the tawa.', tags: ['vegetarian'], placeholder: true },
@@ -105,7 +105,7 @@ export const menu = [
     title: 'Drinks & Desserts',
     images: [
       img('Lassi, mango lassi and milk tea', 'A tray of sweet lassi, mango lassi, pistachio lassi and a cup of milk tea', 'lassi-and-chai'),
-      img('Firni set in clay pots', 'Firni in small clay bowls'),
+      img('Firni set in clay pots', 'Three clay pots of firni topped with pistachio, almond and saffron', 'firni-clay-pots'),
     ],
     items: [
       { name: 'Borhani', price: 0, desc: 'Spiced yoghurt drink with mint and black salt.', tags: ['vegetarian', 'popular'], placeholder: true },

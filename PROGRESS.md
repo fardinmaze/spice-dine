@@ -63,14 +63,14 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 ## Next steps
 - [ ] Visual check at 360 / 390 / 810 / 1200 / 1440px, especially the hero crop and the menu tabs while scrolling.
 - [ ] Keyboard-only and reduced-motion walkthrough in a real browser.
-- [ ] Move `public/Items Image/` (original PNGs, about 14 MB) out of `public/` so it isn't copied into every build.
+- [x] Moved the original client photos to `source-images/Items Image/` (git-ignored) so they're no longer copied into every build.
 - [ ] Decide on `web-hero.mp4`: committed in Phase 3 but unused, and deleted locally.
 - [ ] Contact form endpoint (`VITE_CONTACT_ENDPOINT`).
 - [ ] Set `VITE_SHOW_DRAFT_BADGE=false` for launch.
 
 ## Waiting on the client
 1. Real menu: dishes, prices, and a native speaker's check of the Bangla names.
-2. Remaining photos: curries (second), street food, breads & sides, desserts, the About slider, story, kitchen gallery, review avatars.
+2. Remaining photos: the About slider, story, kitchen gallery and review avatars. (All 14 menu photos are now in, 2026-10-04.)
 3. Confirmed opening hours (public listings disagree).
 4. Email address and Facebook / Instagram links.
 5. "Since [year]" for the About teaser.

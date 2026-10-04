@@ -19,7 +19,7 @@ export const copy = {
       title: 'Big flavour, cooked fresh in the Gabba.',
       lead: 'Slow-cooked curries, biryani and tehari, chargrilled kebabs and loaded snack packs. Dine in, grab takeaway or order online for pickup or delivery.',
       badge: 'Loved by Brisbane locals',
-      image: { src: '/images/dishes/tehari-feast-hero.webp', alt: 'Beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun on a dark table', label: 'Hero dish photo', position: 'center 62%' }, // PLACEHOLDER photo from the client's "Items Image" folder
+      image: { src: '/images/dishes/tehari-feast-hero.webp', alt: 'Beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun on a dark table', label: 'Hero dish photo', position: 'center 62%' }, // PLACEHOLDER photo (original in source-images/Items Image)
       avatars: [
         { src: null, alt: '' },
         { src: null, alt: '' },
