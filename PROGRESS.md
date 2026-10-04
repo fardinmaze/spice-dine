@@ -16,6 +16,15 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 - The Shorshe Ilish photo moved to On Demand with its dish. New placeholders for the client: a **kacchi biryani** photo (On Demand) and a **beef kala bhuna** photo (Curries & Bhuna).
 - Tabs are slightly tighter from 1200px so all 8 fit from 1280px. The edge fade now also shows on wide screens if the bar overflows.
 
+## 2026-10-04 (later): Cart removed, Order online only
+- At the client's request, the **Add to cart** flow is removed: per-dish Add to cart buttons, quantity steppers, the header cart button, the cart drawer, "View cart" on the mobile action bar, `useCart.js` and `components/cart/`.
+- Ordering is only through **Order online** buttons, which open https://spicedine.yumbojumbo.com.au/menu in a new tab (`site.orderUrl`). A new Order online button sits at the top of the menu, under "Our menu".
+- With the cart gone, the header shows Order online on phones again (its arrow icon is hidden below 380px). The mobile action bar is back to Order online + Call.
+
+## 2026-10-04 (later): "Crafted with love" section removed
+- The Home page About teaser ("Crafted with love", the "since [year]" heading, 4-photo slider and Our story button) is removed, along with `AboutTeaser.vue`, `teaserSlides` in `data/story.js` and its copy. The About page is unchanged and still in the nav.
+- Reviews now has the soft pink background, so it reads apart from the plain Catering section above it.
+
 ## 2026-10-04 (later): Real menu and prices from Yumbo Jumbo
 - The placeholder menu is replaced with the restaurant's real menu from https://spicedine.yumbojumbo.com.au/menu: **87 dishes**, names, descriptions and prices **exactly as on Yumbo Jumbo** (checked by script against the downloaded page: 0 mismatches). Placeholder dishes the restaurant doesn't sell (kacchi biryani, shorshe ilish, seekh kebab, raita, firni…) are gone.
 - 11 tabs: Biryani & Tehari · Curries & Bhuna · Combo Deals · Street Food & Snacks · Vorta & Shutki · Kebabs & Wraps · Burgers, Chips & Seafood · Bongo Fusion · Rice & Breads · Drinks & Desserts · On Demand.
@@ -95,11 +104,10 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 - [ ] Set `VITE_SHOW_DRAFT_BADGE=false` for launch.
 
 ## Waiting on the client
-1. ~~Real menu and prices~~ taken from Yumbo Jumbo (2026-10-04). Still to confirm: duplicate prices, On Demand dishes, and the in-store vs online price question.
-2. Remaining photos: the About slider, story, kitchen gallery and review avatars. (All 14 menu photos are now in, 2026-10-04.)
+1. ~~Real menu and prices~~ taken from Yumbo Jumbo (2026-10-04). Still to confirm: duplicate prices and which dishes are On Demand.
+2. Remaining photos: 11 menu placeholders (murag polau, combo deals, vorta/shutki, wontons, polau rice, sweets, goat haleem, duck curry), About page story and kitchen gallery, review avatars.
 3. Confirmed opening hours (public listings disagree).
 4. Email address and Facebook / Instagram links.
-5. "Since [year]" for the About teaser.
-6. Reviews they have permission to quote, with names.
-7. FAQ answers, About story copy, announcement ticker wording.
-8. ~~Logo~~ received and placed (2026-10-04).
+5. Reviews they have permission to quote, with names.
+6. FAQ answers, About story copy, announcement ticker wording.
+7. ~~Logo~~ received and placed (2026-10-04).

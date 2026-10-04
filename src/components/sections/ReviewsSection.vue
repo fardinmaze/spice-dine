@@ -18,6 +18,11 @@ import { copy } from '../../data/copy'
 </template>
 
 <style scoped>
+/* Soft band so it reads apart from the plain Catering section above */
+.reviews {
+  background: var(--surface-soft);
+}
+
 .reviews__title {
   margin-bottom: var(--space-8);
   max-width: 14ch;

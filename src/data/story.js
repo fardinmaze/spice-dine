@@ -1,14 +1,6 @@
 // ALL STORY CONTENT IS PLACEHOLDER – replace with the owners' own words and real photos.
 const photo = (alt, label) => ({ src: null, alt, label })
 
-// Home page "About teaser" slider
-export const teaserSlides = [
-  { caption: 'Spices ground fresh every morning', image: photo('Whole spices being ground', 'Spice prep photo'), placeholder: true },
-  { caption: 'Tehari, cooked low and slow in the deg', image: photo('A large pot of tehari', 'Kitchen photo'), placeholder: true },
-  { caption: 'The family behind the counter', image: photo('The Spice Dine family at the counter', 'Family photo'), placeholder: true },
-  { caption: 'Our dining room on Ipswich Road', image: photo('The Spice Dine dining room', 'Dining room photo'), placeholder: true },
-]
-
 // About page story blocks (image side alternates)
 export const storyBlocks = [
   {

@@ -49,10 +49,6 @@ export const copy = {
       phoneLabel: 'Or call us on',
       image: { src: '/images/dishes/tehari-feast.webp', alt: 'A spread of beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun', label: 'Catering spread photo' }, // PLACEHOLDER photo
     },
-    aboutTeaser: {
-      intro: 'Crafted with love',
-      title: 'Family recipes, cooked fresh since [year]', // PLACEHOLDER year – confirm with client
-    },
     reviews: { title: 'What our guests say' },
     faq: {
       title: 'Questions',
