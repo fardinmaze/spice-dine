@@ -123,7 +123,7 @@ export const copy = {
   },
 
   footer: {
-    statement: 'Fresh, halal and full of flavour, right here in the Gabba.', // PLACEHOLDER
+    statement: 'Fresh, halal and full of flavour, right here in Brisbane.', // PLACEHOLDER
     columns: { nav: 'Navigation', order: 'Order', social: 'Social' },
     hours: 'Hours',
   },
