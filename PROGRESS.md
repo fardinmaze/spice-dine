@@ -16,11 +16,24 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 - The Shorshe Ilish photo moved to On Demand with its dish. New placeholders for the client: a **kacchi biryani** photo (On Demand) and a **beef kala bhuna** photo (Curries & Bhuna).
 - Tabs are slightly tighter from 1200px so all 8 fit from 1280px. The edge fade now also shows on wide screens if the bar overflows.
 
+## 2026-10-04 (later): Real menu and prices from Yumbo Jumbo
+- The placeholder menu is replaced with the restaurant's real menu from https://spicedine.yumbojumbo.com.au/menu: **87 dishes**, names, descriptions and prices **exactly as on Yumbo Jumbo** (checked by script against the downloaded page: 0 mismatches). Placeholder dishes the restaurant doesn't sell (kacchi biryani, shorshe ilish, seekh kebab, raita, firni…) are gone.
+- 11 tabs: Biryani & Tehari · Curries & Bhuna · Combo Deals · Street Food & Snacks · Vorta & Shutki · Kebabs & Wraps · Burgers, Chips & Seafood · Bongo Fusion · Rice & Breads · Drinks & Desserts · On Demand.
+- Decisions to confirm with the client:
+  - Yumbo Jumbo lists some items twice at different prices. The site uses Fish N Chips **$15.61** (also listed as "Fish in Chips (I)" $16.76), Hot Chips Small **$5.01** (also $5.50) and Naan Regular **$5.10** (also $5.01).
+  - The 16 soft drinks are grouped into 3 rows by size (can $3.36, 600ml $5.61, 1.25L $6.71), with the flavours in the description.
+  - Tags: only **Popular** (their "Top Sellers") and **Spicy** (where their description says spicy). No vegetarian or nut tags are guessed.
+  - **On Demand** now holds Goat Haleem and Duck Curry (a guess; neither is marked on Yumbo Jumbo).
+  - Obvious typos in their descriptions are fixed (e.g. "driks", "clamari", "traditionary").
+- Photos: every real photo matches a real dish. The raita and firni photos are no longer used (not on the menu). New placeholders: murag polau, 2 combo deals, 2 vorta/shutki, wontons, polau rice, sweets, goat haleem, duck curry.
+- `DishRow` hides the description line when a dish has none.
+
 ## 2026-10-04 (later): Client logo
 - The client's round badge logo replaces the text wordmark in the header (58px, 62px from 1024px) and the footer (96–128px). The path is set once in `site.logo` (`src/config/site.js`).
 - Web copies in `public/images/brand/` (`logo-192.webp` 11 KB, `logo-400.webp` 24 KB). The 1500px original (624 KB) moved to `source-images/LOGO.png`.
 - Favicon is now the logo (`favicon-32.png`), plus `apple-touch-icon.png` for phone home screens. The old `favicon.svg` is removed.
 - Hero headline changed to "Big flavour, cooked fresh in Brisbane." (was "…in the Gabba.").
+- Footer slogan changed to "Fresh, halal and full of flavour, right here in Brisbane." (was "…in the Gabba.").
 
 ## 2026-10-04: Client feedback round 1
 Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla names, no-cart rule).
@@ -82,7 +95,7 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 - [ ] Set `VITE_SHOW_DRAFT_BADGE=false` for launch.
 
 ## Waiting on the client
-1. Real menu: dishes, prices, and a native speaker's check of the Bangla names.
+1. ~~Real menu and prices~~ taken from Yumbo Jumbo (2026-10-04). Still to confirm: duplicate prices, On Demand dishes, and the in-store vs online price question.
 2. Remaining photos: the About slider, story, kitchen gallery and review avatars. (All 14 menu photos are now in, 2026-10-04.)
 3. Confirmed opening hours (public listings disagree).
 4. Email address and Facebook / Instagram links.

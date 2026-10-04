@@ -37,7 +37,7 @@ async function update(value) {
         <span :aria-hidden="!dish.price || undefined">{{ formatPrice(dish.price) }}</span>
       </p>
     </div>
-    <p class="dish__desc">{{ dish.desc }}</p>
+    <p v-if="dish.desc" class="dish__desc">{{ dish.desc }}</p>
     <div class="dish__foot">
       <ul v-if="dish.tags.length" class="dish__tags" role="list">
         <li v-for="tag in dish.tags" :key="tag"><DietTag :tag="tag" /></li>
