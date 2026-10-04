@@ -64,7 +64,7 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 - [ ] Visual check at 360 / 390 / 810 / 1200 / 1440px, especially the hero crop and the menu tabs while scrolling.
 - [ ] Keyboard-only and reduced-motion walkthrough in a real browser.
 - [x] Moved the original client photos to `source-images/Items Image/` (git-ignored) so they're no longer copied into every build.
-- [ ] Decide on `web-hero.mp4`: committed in Phase 3 but unused, and deleted locally.
+- [x] `web-hero.mp4` restored (2026-10-04). It is in the repo root, not used by the site yet.
 - [ ] Contact form endpoint (`VITE_CONTACT_ENDPOINT`).
 - [ ] Set `VITE_SHOW_DRAFT_BADGE=false` for launch.
 
