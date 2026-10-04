@@ -212,17 +212,7 @@ export const menu = [
   },
 ]
 
-// Stable ids for the cart: '<category>/<dish-slug>'
-const slug = (text) => text.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-for (const category of menu) {
-  for (const item of category.items) item.id = `${category.id}/${slug(item.name)}`
-}
-
-export const dishesById = new Map(menu.flatMap((c) => c.items.map((item) => [item.id, item])))
-
 export const ON_DEMAND_ID = 'on-demand'
-const onDemandIds = new Set(menu.find((c) => c.id === ON_DEMAND_ID)?.items.map((d) => d.id))
-export const isOnDemand = (item) => onDemandIds.has(item.id)
 
 // Marquee band
 export const marqueeDishes = [

@@ -3,7 +3,6 @@ import { nextTick, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import BaseButton from '../ui/BaseButton.vue'
 import AppIcon from '../ui/AppIcon.vue'
-import CartButton from '../cart/CartButton.vue'
 import { openOverlay } from '../../composables/useOverlays'
 import { nav, site } from '../../config/site'
 import { copy } from '../../data/copy'
@@ -77,7 +76,6 @@ watch(() => route.fullPath, () => open.value && toggle(false))
 
       <div class="header__actions">
         <BaseButton :label="copy.cta.order" :href="site.orderUrl" external size="sm" class="header__order" />
-        <CartButton />
         <button
           ref="burger"
           class="burger"
@@ -273,9 +271,9 @@ watch(() => route.fullPath, () => open.value && toggle(false))
   transform: translateY(-12px);
 }
 
-/* Phones: Order online lives in the action bar and menu panel, keeping room for the cart */
-@media (max-width: 519px) {
-  .header__order { display: none; }
+@media (max-width: 380px) {
+  .header__order :deep(.btn__icon) { display: none; }
+  .header__order { padding-right: 1.125rem; }
 }
 
 @media (min-width: 1024px) {

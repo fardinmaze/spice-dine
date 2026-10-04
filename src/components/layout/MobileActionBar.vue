@@ -4,8 +4,6 @@ import { useRoute } from 'vue-router'
 import BaseButton from '../ui/BaseButton.vue'
 import { site } from '../../config/site'
 import { copy } from '../../data/copy'
-import { useCart } from '../../composables/useCart'
-import { openOverlay } from '../../composables/useOverlays'
 
 // Phones and small tablets. Appears once the page hero ([data-actionbar-show-after]) has scrolled past,
 // hides while any [data-actionbar-hide] element (Visit section, footer) is in view.
@@ -13,9 +11,6 @@ const route = useRoute()
 const pastHero = ref(false)
 const hiding = reactive(new Set())
 const visible = computed(() => pastHero.value && hiding.size === 0)
-
-// Once something is in the cart, the main action becomes "View cart"
-const { count } = useCart()
 
 let heroObserver
 let hideObserver
@@ -52,8 +47,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="action-bar" :class="{ 'is-visible': visible }" :inert="!visible || undefined">
-    <BaseButton v-if="count" :label="`${copy.cart.view} (${count})`" icon="bag" block @click="openOverlay('cart')" />
-    <BaseButton v-else :label="copy.cta.order" :href="site.orderUrl" external block />
+    <BaseButton :label="copy.cta.order" :href="site.orderUrl" external block />
     <BaseButton :label="copy.cta.call" :href="site.phoneHref" icon="phone" variant="secondary" block class="action-bar__call" />
   </div>
 </template>

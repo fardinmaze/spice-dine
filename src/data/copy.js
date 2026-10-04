@@ -95,28 +95,6 @@ export const copy = {
     close: 'Close',
   },
 
-  cart: {
-    title: 'Your cart',
-    open: 'Cart',
-    add: 'Add to cart',
-    empty: "Your cart is empty. Browse the menu and add the dishes you'd like.",
-    subtotal: 'Subtotal',
-    pricesPending: 'Prices to be confirmed',
-    onDemandNote: 'Your cart includes On Demand dishes. Order today, pick up or dine in tomorrow.',
-    onDemandLine: 'Ready tomorrow',
-    proceed: 'Proceed to order',
-    clear: 'Clear cart',
-    back: 'Back to cart',
-    view: 'View cart',
-    // Shown when "Proceed to order" is pressed. Online checkout on this site is not live yet.
-    checkout: {
-      title: 'Ready to order?',
-      body: 'Checkout on this website is coming soon. Until then, you can place this order in one of two ways:',
-      online: 'Add the same dishes on our online ordering page and pay there.',
-      phone: "Call us, read out your list and we'll have it ready.",
-    },
-  },
-
   notFound: {
     title: "This page isn't on the menu",
     lead: 'The link may be old or mistyped. Head back home or order online.',

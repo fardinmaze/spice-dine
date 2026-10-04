@@ -6,7 +6,6 @@ import SiteHeader from './components/layout/SiteHeader.vue'
 import SiteFooter from './components/layout/SiteFooter.vue'
 import MobileActionBar from './components/layout/MobileActionBar.vue'
 import DraftBadge from './components/layout/DraftBadge.vue'
-import CartDrawer from './components/cart/CartDrawer.vue'
 import CateringDialog from './components/catering/CateringDialog.vue'
 import { closeOverlays } from './composables/useOverlays'
 
@@ -32,7 +31,6 @@ watch(() => route.fullPath, closeOverlays)
   <SiteFooter />
   <MobileActionBar />
   <DraftBadge />
-  <CartDrawer />
   <CateringDialog />
 </template>
 

@@ -3,8 +3,10 @@ import MenuTabsBar from './MenuTabsBar.vue'
 import MenuTabsIndex from './MenuTabsIndex.vue'
 import MenuCategory from './MenuCategory.vue'
 import AppIcon from '../ui/AppIcon.vue'
+import BaseButton from '../ui/BaseButton.vue'
 import { menu, ON_DEMAND_ID } from '../../data/menu'
 import { copy } from '../../data/copy'
+import { site } from '../../config/site'
 import { useScrollSpy } from '../../composables/useScrollSpy'
 
 // Both tab sets read and write this one spy state.
@@ -24,6 +26,7 @@ const { active, scrollTo } = useScrollSpy(ids, { offset })
     <div class="container menu__intro">
       <h2 id="menu-title" v-reveal>{{ copy.home.menu.title }}</h2>
       <p class="lead">{{ copy.home.menu.lead }}</p>
+      <BaseButton :label="copy.cta.order" :href="site.orderUrl" external class="menu__order" />
       <p class="on-demand">
         <span class="on-demand__icon"><AppIcon name="clock" :size="22" /></span>
         <span>
@@ -54,6 +57,10 @@ const { active, scrollTo } = useScrollSpy(ids, { offset })
   display: grid;
   gap: var(--space-3);
   margin-bottom: var(--space-8);
+}
+
+.menu__order {
+  justify-self: start;
 }
 
 .on-demand {
