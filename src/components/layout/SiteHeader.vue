@@ -53,7 +53,17 @@ watch(() => route.fullPath, () => open.value && toggle(false))
 <template>
   <header ref="header" class="header" :class="{ 'is-scrolled': scrolled, 'is-hidden': hidden && !open }" @keydown="onKey">
     <div class="header__inner container">
-      <RouterLink to="/" class="wordmark" aria-label="Spice Dine, home">{{ site.name }}</RouterLink>
+      <RouterLink to="/" class="wordmark">
+        <img
+          :src="site.logo.src"
+          :srcset="`${site.logo.src} 180w, ${site.logo.srcLarge} 376w`"
+          sizes="60px"
+          :width="site.logo.width"
+          :height="site.logo.height"
+          :alt="`${site.name}, home`"
+          fetchpriority="high"
+        />
+      </RouterLink>
 
       <nav class="header__nav" aria-label="Main">
         <ul role="list">
@@ -135,12 +145,19 @@ watch(() => route.fullPath, () => open.value && toggle(false))
 }
 
 .wordmark {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
-  line-height: 1;
-  color: var(--action);
-  text-decoration: none;
-  padding-block: var(--space-2);
+  display: block;
+  flex: none;
+  border-radius: 50%;
+}
+
+/* Round badge logo: fills most of the header height */
+.wordmark img {
+  width: auto;
+  height: 58px;
+}
+
+@media (min-width: 1024px) {
+  .wordmark img { height: 62px; }
 }
 
 .header__nav {

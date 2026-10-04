@@ -9,6 +9,19 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 
 ---
 
+## 2026-10-04 (later): On Demand as its own menu tab
+- Kacchi Biryani, Shorshe Ilish and Haleem moved out of their categories into a new **On Demand** category, the 8th and last tab in both tab bars. Being in this category is what makes a dish On Demand (`isOnDemand` in `data/menu.js`), so the "On Demand" tag chip is gone.
+- The category shows a note under its title: "Slow-cooked to order. Order today, pick up or dine in tomorrow."
+- The On Demand notice at the top of the menu links to the new tab ("See On Demand dishes").
+- The Shorshe Ilish photo moved to On Demand with its dish. New placeholders for the client: a **kacchi biryani** photo (On Demand) and a **beef kala bhuna** photo (Curries & Bhuna).
+- Tabs are slightly tighter from 1200px so all 8 fit from 1280px. The edge fade now also shows on wide screens if the bar overflows.
+
+## 2026-10-04 (later): Client logo
+- The client's round badge logo replaces the text wordmark in the header (58px, 62px from 1024px) and the footer (96–128px). The path is set once in `site.logo` (`src/config/site.js`).
+- Web copies in `public/images/brand/` (`logo-192.webp` 11 KB, `logo-400.webp` 24 KB). The 1500px original (624 KB) moved to `source-images/LOGO.png`.
+- Favicon is now the logo (`favicon-32.png`), plus `apple-touch-icon.png` for phone home screens. The old `favicon.svg` is removed.
+- Hero headline changed to "Big flavour, cooked fresh in Brisbane." (was "…in the Gabba.").
+
 ## 2026-10-04: Client feedback round 1
 Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla names, no-cart rule).
 - Removed the "Dhaka's favourites" headline; new hero: "Big flavour, cooked fresh in the Gabba."
@@ -76,4 +89,4 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 5. "Since [year]" for the About teaser.
 6. Reviews they have permission to quote, with names.
 7. FAQ answers, About story copy, announcement ticker wording.
-8. Logo, if one exists (the name is set in Shrikhand for now).
+8. ~~Logo~~ received and placed (2026-10-04).

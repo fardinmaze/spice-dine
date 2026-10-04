@@ -20,7 +20,14 @@ const year = new Date().getFullYear()
 
       <div class="footer__grid">
         <div class="footer__info">
-          <p class="footer__brand">{{ site.name }}</p>
+          <img
+            class="footer__logo"
+            :src="site.logo.srcLarge"
+            :width="site.logo.width"
+            :height="site.logo.height"
+            :alt="site.name"
+            loading="lazy"
+          />
           <address>
             <a :href="site.mapsUrl" target="_blank" rel="noopener">{{ site.address }}<span class="visually-hidden"> (opens in a new tab)</span></a><br />
             <a :href="site.phoneHref">{{ site.phone }}</a>
@@ -121,9 +128,9 @@ const year = new Date().getFullYear()
   grid-column: 1 / -1;
 }
 
-.footer__brand {
-  font-weight: 700;
-  font-size: var(--fs-h3);
+.footer__logo {
+  width: auto;
+  height: clamp(96px, 80px + 3vw, 128px);
 }
 
 address {

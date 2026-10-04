@@ -1,6 +1,8 @@
 // Restaurant facts live here and only here. Components never hand-type these.
 export const site = {
   name: 'Spice Dine',
+  // Client logo (round badge, transparent). Original 1500px PNG is in source-images/LOGO.png
+  logo: { src: '/images/brand/logo-192.webp', srcLarge: '/images/brand/logo-400.webp', width: 376, height: 400 },
   orderUrl: 'https://spicedine.yumbojumbo.com.au/menu',
   phone: '(07) 3272 1754',
   phoneHref: 'tel:+61732721754',

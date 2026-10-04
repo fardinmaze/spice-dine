@@ -16,7 +16,7 @@ export const copy = {
   home: {
     hero: {
       intro: 'Halal Bangladeshi kitchen · Woolloongabba', // PLACEHOLDER
-      title: 'Big flavour, cooked fresh in the Gabba.',
+      title: 'Big flavour, cooked fresh in Brisbane.',
       lead: 'Slow-cooked curries, biryani and tehari, chargrilled kebabs and loaded snack packs. Dine in, grab takeaway or order online for pickup or delivery.',
       badge: 'Loved by Brisbane locals',
       image: { src: '/images/dishes/tehari-feast-hero.webp', alt: 'Beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun on a dark table', label: 'Hero dish photo', position: 'center 62%' }, // PLACEHOLDER photo (original in source-images/Items Image)
