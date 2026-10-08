@@ -7,6 +7,8 @@ export const site = {
   phone: '(07) 3272 1754',
   phoneHref: 'tel:+61732721754',
   email: 'hello@example.com', // PLACEHOLDER
+  // Contact and catering forms open WhatsApp to this number: international format, digits only (61 + number without the leading 0).
+  whatsapp: '61478391243', // Client's business WhatsApp, 0478 391 243
   address: 'Shop 3/80 Ipswich Rd, Woolloongabba QLD 4102',
   mapsUrl: 'https://maps.google.com/?q=Shop+3/80+Ipswich+Rd+Woolloongabba+QLD+4102',
   mapEmbed: 'https://maps.google.com/maps?q=80%20Ipswich%20Rd%20Woolloongabba&z=16&output=embed',

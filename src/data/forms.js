@@ -1,7 +1,9 @@
 import { site } from '../config/site'
 
 // Field definitions and wording for the site's two forms (rendered by EnquiryForm.vue).
+// Both forms send through WhatsApp (services/contact.js), so the wording says so.
 // type: text | email | tel | date | number | select | textarea
+// waLabel: optional label used in the WhatsApp message instead of the on-screen label
 const shared = {
   summary: 'Please fix the following before sending:',
   name: { id: 'name', type: 'text', autocomplete: 'name', required: true, label: 'Name', messages: { required: 'Enter your name.' } },
@@ -14,8 +16,11 @@ const shared = {
 export const contactForm = {
   summary: shared.summary,
   submit: 'Send message',
-  success: "Message sent. We'll reply within one business day.",
-  error: `Couldn't send your message. Check your connection and try again, or call us on ${site.phone}.`,
+  note: 'Opens WhatsApp with your message ready. Just tap send.',
+  success: "WhatsApp has opened with your message. Tap send there and we'll get back to you within one business day.",
+  retryLead: "WhatsApp didn't open?",
+  retry: 'Open WhatsApp',
+  error: `Couldn't open WhatsApp. Try again, or call us on ${site.phone}.`,
   fields: [
     shared.name,
     shared.email,
@@ -30,8 +35,11 @@ export const contactForm = {
 export const cateringForm = {
   summary: shared.summary,
   submit: 'Send enquiry',
-  success: "Thanks! We've got your catering enquiry and will call or email you within one business day.",
-  error: `Couldn't send your enquiry. Check your connection and try again, or call us on ${site.phone}.`,
+  note: 'Opens WhatsApp with your enquiry ready. Just tap send.',
+  success: "WhatsApp has opened with your enquiry. Tap send there and we'll get back to you with a quote within one business day.",
+  retryLead: "WhatsApp didn't open?",
+  retry: 'Open WhatsApp',
+  error: `Couldn't open WhatsApp. Try again, or call us on ${site.phone}.`,
   fields: [
     shared.name,
     {
@@ -51,7 +59,7 @@ export const cateringForm = {
       id: 'service', type: 'select', label: 'Pickup or delivery', options: ['Pickup', 'Delivery', 'Not sure yet'],
     },
     {
-      id: 'details', type: 'textarea', required: true, minLength: 10, label: 'What would you like?',
+      id: 'details', type: 'textarea', required: true, minLength: 10, label: 'What would you like?', waLabel: 'Order details',
       hint: 'Dishes, dietary needs, spice level, budget, anything that helps us quote.',
       messages: { required: 'Tell us a little about what you need.', short: 'Add a few more details (at least 10 characters).' },
     },

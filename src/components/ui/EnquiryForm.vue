@@ -5,10 +5,11 @@ import { site } from '../../config/site'
 import { dateIn } from '../../utils/hours'
 
 // Generic validated form: labels always visible, validation on blur and submit,
-// error summary focused on a failed submit, then loading → success | error.
+// error summary focused on a failed submit, then success | error.
+// send() opens WhatsApp with the message, so it runs synchronously inside the click (no popup blocking).
 const props = defineProps({
   form: { type: Object, required: true }, // { fields, summary, submit, success, error } from data/forms.js
-  send: { type: Function, required: true }, // async (payload) => void, throws on failure
+  send: { type: Function, required: true }, // (payload, form) => { href }, throws on failure
 })
 const emit = defineEmits(['sent'])
 
@@ -24,7 +25,8 @@ const minDate = (field) => (field.minDays != null ? dateIn(site.timezone, field.
 const values = reactive(Object.fromEntries(fields.map((f) => [f.id, f.type === 'select' ? f.options[0] : ''])))
 const errors = reactive({})
 const touched = reactive({})
-const status = ref('idle') // idle | invalid | loading | success | error
+const status = ref('idle') // idle | invalid | success | error
+const sentHref = ref(null) // WhatsApp link, offered again on the success screen
 const summary = ref(null)
 const done = ref(null)
 
@@ -78,9 +80,8 @@ async function submit() {
     return
   }
 
-  status.value = 'loading'
   try {
-    await props.send({ ...values })
+    sentHref.value = props.send({ ...values }, props.form)?.href ?? null
     status.value = 'success'
     emit('sent')
     await nextTick()
@@ -95,6 +96,10 @@ async function submit() {
   <div class="enquiry">
     <div v-if="status === 'success'" ref="done" class="enquiry__done" tabindex="-1" role="status">
       <p>{{ form.success }}</p>
+      <p v-if="sentHref" class="enquiry__retry">
+        {{ form.retryLead }}
+        <a :href="sentHref" target="_blank" rel="noopener">{{ form.retry }}</a>
+      </p>
       <slot name="done" />
     </div>
 
@@ -154,7 +159,10 @@ async function submit() {
 
       <p v-if="status === 'error'" class="enquiry__error" role="alert">{{ form.error }}</p>
 
-      <BaseButton :label="form.submit" type="submit" icon="arrow" size="lg" :loading="status === 'loading'" />
+      <div class="enquiry__actions">
+        <BaseButton :label="form.submit" type="submit" icon="arrow" size="lg" />
+        <p v-if="form.note" class="enquiry__note">{{ form.note }}</p>
+      </div>
     </form>
   </div>
 </template>
@@ -280,6 +288,28 @@ select:focus {
 
 .enquiry__error {
   font-weight: 600;
+}
+
+.enquiry__actions {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+}
+
+.enquiry__note {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.enquiry__retry {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.enquiry__retry a {
+  color: var(--action);
+  font-weight: 700;
 }
 
 .enquiry__done {

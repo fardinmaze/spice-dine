@@ -11,7 +11,7 @@ npm run build
 npm run lint
 ```
 
-Copy `.env.example` to `.env`. `VITE_CONTACT_ENDPOINT` is where the contact form POSTs (leave it empty to simulate a send), and `VITE_SHOW_DRAFT_BADGE` shows the draft badge.
+Copy `.env.example` to `.env`. `VITE_SHOW_DRAFT_BADGE` shows the draft badge. The contact and catering forms send through WhatsApp to `site.whatsapp` in `src/config/site.js`.
 
 ## Docs
 - `CLAUDE_CODE_PROMPT.md`: build spec (takes precedence)
