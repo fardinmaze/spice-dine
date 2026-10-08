@@ -1,6 +1,4 @@
 <script setup>
-import PlaceholderImage from './PlaceholderImage.vue'
-
 defineProps({ review: { type: Object, required: true } })
 </script>
 
@@ -12,13 +10,7 @@ defineProps({ review: { type: Object, required: true } })
     <blockquote class="testimonial__quote">
       <p>{{ review.quote }}</p>
     </blockquote>
-    <figcaption class="testimonial__who">
-      <PlaceholderImage :src="review.avatar.src" :alt="review.avatar.alt" ratio="1" round :width="96" :height="96" class="testimonial__avatar" />
-      <span>
-        <span class="testimonial__name">{{ review.name }}</span>
-        <span class="testimonial__role">{{ review.role }}</span>
-      </span>
-    </figcaption>
+    <figcaption class="testimonial__name">{{ review.name }}</figcaption>
   </figure>
 </template>
 
@@ -47,25 +39,7 @@ defineProps({ review: { type: Object, required: true } })
   line-height: 1.55;
 }
 
-.testimonial__who {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.testimonial__avatar {
-  width: 48px;
-  flex: none;
-}
-
 .testimonial__name {
-  display: block;
   font-weight: 700;
-}
-
-.testimonial__role {
-  display: block;
-  font-size: var(--fs-small);
-  color: var(--text-muted);
 }
 </style>

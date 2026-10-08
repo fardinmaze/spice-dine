@@ -9,6 +9,10 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 
 ---
 
+## 2026-10-08: Reviewer names
+- "What our guests say" now shows the client's names: Arifur Rahman Shishir, Tanvir Alam Fahim, Saidul Bari Shadhin. At the client's request each card shows the name only: the avatar photo and the "Regular customer" label are removed from `TestimonialCard`.
+- The quote wording is still placeholder text; confirm it with the client.
+
 ## 2026-10-08: Last 10 menu photos
 - The client's 10 remaining dish photos are placed, so every menu category now has two real photos and no placeholders are left in the menu. Each is an 800px WebP (82–167 KB) in `public/images/dishes/`; the 1792×2400 originals moved to `source-images/Items Image/`.
 - New files: `murag-polau`, `polau-roast-deal`, `bangla-deal`, `vorta-spread`, `lotia-shutki-bhuna`, `wontons`, `polau-rice`, `bangladeshi-sweets`, `goat-haleem`, `duck-curry`.
@@ -119,9 +123,9 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 
 ## Waiting on the client
 1. ~~Real menu and prices~~ taken from Yumbo Jumbo (2026-10-04). Still to confirm: duplicate prices and which dishes are On Demand.
-2. Remaining photos: ~~menu placeholders~~ all placed (2026-10-08); still needed for the About page story and kitchen gallery, and review avatars.
+2. Remaining photos: ~~menu placeholders~~ all placed (2026-10-08); still needed for the About page story and kitchen gallery (review avatars no longer used).
 3. Confirmed opening hours (public listings disagree).
 4. Email address and Facebook / Instagram links.
-5. Reviews they have permission to quote, with names.
+5. Reviews: ~~names~~ received (2026-10-08); quote wording still to confirm.
 6. FAQ answers, About story copy, announcement ticker wording.
 7. ~~Logo~~ received and placed (2026-10-04).
