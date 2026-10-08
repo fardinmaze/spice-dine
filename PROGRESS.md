@@ -9,6 +9,20 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 
 ---
 
+## 2026-10-08: Last 10 menu photos
+- The client's 10 remaining dish photos are placed, so every menu category now has two real photos and no placeholders are left in the menu. Each is an 800px WebP (82–167 KB) in `public/images/dishes/`; the 1792×2400 originals moved to `source-images/Items Image/`.
+- New files: `murag-polau`, `polau-roast-deal`, `bangla-deal`, `vorta-spread`, `lotia-shutki-bhuna`, `wontons`, `polau-rice`, `bangladeshi-sweets`, `goat-haleem`, `duck-curry`.
+- Two originals had each other's names: "Aloo and begun vorta.jpg" shows the Bangla Deal (fish curry, rice, dal, fried eggplant) and "rice, fish curry, dal and vorta.jpg" shows a vorta spread. They're placed by what they show. Captions changed to match: "Bangla Deal: rice, fish curry and dal" and "A spread of vorta with rice".
+- Alt text rewritten to describe what's in each photo.
+- To confirm with the client: the wontons photo shows about 14 wontons in chilli oil, while the menu item is "Wontons Plate (5 Pcs)".
+
+## 2026-10-08: Forms send to WhatsApp
+- At the client's request, **Send enquiry** (catering) and **Send message** (Contact page) now open WhatsApp with the filled-in form written out as a message to the restaurant's number (`site.whatsapp` in `src/config/site.js`). Phones open the WhatsApp app; computers open WhatsApp Web or desktop. The customer taps send in WhatsApp; a static site can't send it for them (that would need the WhatsApp Business API and a server).
+- The message has a bold heading ("New catering enquiry from the website" / "New message from the website"), then one line per filled field. Dates read like "Tue, 13 Oct 2026".
+- A note under each button says WhatsApp will open. The success screen has an "Open WhatsApp" link in case the browser blocked the new tab.
+- The old POST-to-endpoint code and `VITE_CONTACT_ENDPOINT` / `VITE_CATERING_ENDPOINT` are removed.
+- Tested end to end with a test number, then set `site.whatsapp` to the client's business WhatsApp, 0478 391 243 (`61478391243`).
+
 ## 2026-10-04 (later): On Demand as its own menu tab
 - Kacchi Biryani, Shorshe Ilish and Haleem moved out of their categories into a new **On Demand** category, the 8th and last tab in both tab bars. Being in this category is what makes a dish On Demand (`isOnDemand` in `data/menu.js`), so the "On Demand" tag chip is gone.
 - The category shows a note under its title: "Slow-cooked to order. Order today, pick up or dine in tomorrow."
@@ -100,12 +114,12 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 - [ ] Keyboard-only and reduced-motion walkthrough in a real browser.
 - [x] Moved the original client photos to `source-images/Items Image/` (git-ignored) so they're no longer copied into every build.
 - [x] `web-hero.mp4` restored (2026-10-04). It is in the repo root, not used by the site yet.
-- [ ] Contact form endpoint (`VITE_CONTACT_ENDPOINT`).
+- [x] Client's WhatsApp number for the forms (`site.whatsapp`), 2026-10-08.
 - [ ] Set `VITE_SHOW_DRAFT_BADGE=false` for launch.
 
 ## Waiting on the client
 1. ~~Real menu and prices~~ taken from Yumbo Jumbo (2026-10-04). Still to confirm: duplicate prices and which dishes are On Demand.
-2. Remaining photos: 11 menu placeholders (murag polau, combo deals, vorta/shutki, wontons, polau rice, sweets, goat haleem, duck curry), About page story and kitchen gallery, review avatars.
+2. Remaining photos: ~~menu placeholders~~ all placed (2026-10-08); still needed for the About page story and kitchen gallery, and review avatars.
 3. Confirmed opening hours (public listings disagree).
 4. Email address and Facebook / Instagram links.
 5. Reviews they have permission to quote, with names.

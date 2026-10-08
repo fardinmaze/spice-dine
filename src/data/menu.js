@@ -16,7 +16,7 @@ export const menu = [
     title: 'Biryani & Tehari',
     images: [
       img('Beef tehari with kebabs, borhani and gulab jamun', 'A plate of beef tehari with chicken skewers, grilled chicken, a glass of borhani and a bowl of gulab jamun', 'tehari-feast'),
-      img('Murag polau', 'A plate of chicken polau'),
+      img('Murag polau', 'Chicken polau with drumsticks, boiled eggs, cashews and lime wedges in a wide bowl', 'murag-polau'),
     ],
     items: [
       dish('Beef Tehari', 21.21, 'Aromatic rice with tender beef (with bone), a Bangladeshi specialty known for its rich, savoury flavours.'),
@@ -50,8 +50,8 @@ export const menu = [
     id: 'combo-deals',
     title: 'Combo Deals',
     images: [
-      img('Polau and roast, the Popular Deal', 'Polau rice with chicken roast'),
-      img('Bangla Deal: rice, fish curry, dal and vorta', 'Steamed rice with fish curry, dal and aloo vorta'),
+      img('Polau and roast, the Popular Deal', 'A whole roast chicken on polau rice with fried onion, and a small bowl of raita', 'polau-roast-deal'),
+      img('Bangla Deal: rice, fish curry and dal', 'A brass plate of steamed rice, fish curry, a bowl of dal and fried eggplant slices', 'bangla-deal'),
     ],
     items: [
       dish('Everyday Happy Deal', 17.86, '1 plain rice + 1 curry + dal or veg.', ['popular']),
@@ -86,8 +86,8 @@ export const menu = [
     id: 'vorta-shutki',
     title: 'Vorta & Shutki',
     images: [
-      img('Aloo and begun vorta', 'Small bowls of mashed potato and mashed eggplant vorta'),
-      img('Lotia shutki bhuna', 'Dried lotia fish cooked in a spicy bhuna'),
+      img('A spread of vorta with rice', 'Steamed rice surrounded by small bowls of different vorta on a banana leaf', 'vorta-spread'),
+      img('Lotia shutki bhuna', 'Lotia shutki bhuna with eggplant and green chillies on a black plate', 'lotia-shutki-bhuna'),
     ],
     items: [
       dish('Aloo Vorta', 5.61, 'Spicy mashed potato.', ['spicy']),
@@ -142,7 +142,7 @@ export const menu = [
     title: 'Bongo Fusion',
     images: [
       img('Bongo fried chicken with fried rice', 'Fried chicken drumstick with vegetable fried rice and sweet and sour sauce', 'fried-chicken-rice-plate'),
-      img('Wontons plate', 'A plate of five fried wontons'),
+      img('Wontons plate', 'A plate of wontons topped with chilli oil, sesame seeds and spring onion', 'wontons'),
     ],
     items: [
       dish('Bongo Fried Rice', 14.51),
@@ -158,7 +158,7 @@ export const menu = [
     title: 'Rice & Breads',
     images: [
       img('Paratha with spiced potato', 'Hands tearing a flaky layered paratha, with a bowl of spiced potato', 'paratha-aloo'),
-      img('Freshly cooked polau rice', 'A bowl of aromatic polau rice'),
+      img('Freshly cooked polau rice', 'An oval platter of polau rice topped with fried onion, with a bowl of cashews on the side', 'polau-rice'),
     ],
     items: [
       dish('Plain Rice', 4.46, 'Freshly cooked basmati rice.'),
@@ -176,7 +176,7 @@ export const menu = [
     title: 'Drinks & Desserts',
     images: [
       img('Lassi, mango lassi and milk tea', 'A tray of sweet lassi, mango lassi, pistachio lassi and a cup of milk tea', 'lassi-and-chai'),
-      img('Bangladeshi sweets', 'A plate of chom chom, kalo jam and rashgulla'),
+      img('Bangladeshi sweets', 'A platter of assorted Bangladeshi sweets, including sondesh, barfi and laddu', 'bangladeshi-sweets'),
     ],
     items: [
       dish('Borhani', 7.81, 'Spiced yoghurt drink with mint and spices, in a 600ml bottle.'),
@@ -202,8 +202,8 @@ export const menu = [
     note: 'Slow-cooked to order. Order today, pick up or dine in tomorrow.',
     // PLACEHOLDER – which dishes need a day's notice is a guess; confirm with the client
     images: [
-      img('Goat haleem, slow-cooked', 'A bowl of goat haleem topped with fried onion'),
-      img('Duck curry', 'Duck pieces in a rich Bangladeshi curry'),
+      img('Goat haleem, slow-cooked', 'A bowl of goat haleem topped with fried onion, cashews and coriander, with a lime wedge', 'goat-haleem'),
+      img('Duck curry', 'Duck curry in a clay pot', 'duck-curry'),
     ],
     items: [
       dish('Goat Haleem', 12.31, 'Bangladeshi street food, slow-cooked.', ['popular']),
