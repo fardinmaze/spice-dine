@@ -19,7 +19,14 @@ export const copy = {
       title: 'Big flavour, cooked fresh in Brisbane.',
       lead: 'Slow-cooked curries, biryani and tehari, chargrilled kebabs and loaded snack packs. Dine in, grab takeaway or order online for pickup or delivery.',
       badge: 'Loved by Brisbane locals',
-      image: { src: '/images/dishes/tehari-feast-hero.webp', alt: 'Beef tehari, chicken skewers, grilled chicken, borhani and gulab jamun on a dark table', label: 'Hero dish photo', position: 'center 62%' }, // PLACEHOLDER photo (original in source-images/Items Image)
+      // Client's 10s promo video (1280×720, 16:9 with text in the picture, so it is never cropped). Plays muted on a loop.
+      video: {
+        src: '/videos/hero.mp4',
+        poster: '/videos/hero-poster.webp', // frame at 1s: logo over the Brisbane skyline
+        label: 'Spice Dine promo video: the Brisbane skyline at sunrise, the Spice Dine logo, then burgers, grilled meat with rice, fish and chips, smoothies, iced drinks and tea.',
+        pause: 'Pause video',
+        play: 'Play video',
+      },
       avatars: [
         { src: null, alt: '' },
         { src: null, alt: '' },

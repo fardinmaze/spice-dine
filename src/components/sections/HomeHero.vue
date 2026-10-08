@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import BaseButton from '../ui/BaseButton.vue'
 import OpenStatusChip from '../ui/OpenStatusChip.vue'
 import AvatarStack from '../ui/AvatarStack.vue'
-import PlaceholderImage from '../ui/PlaceholderImage.vue'
+import AppIcon from '../ui/AppIcon.vue'
 import Squiggle from '../ui/Squiggle.vue'
 import { site } from '../../config/site'
 import { copy } from '../../data/copy'
@@ -11,9 +11,24 @@ import { copy } from '../../data/copy'
 const hero = copy.home.hero
 const words = hero.title.split(' ')
 
-// The page's one orchestrated moment: squiggle → words rise → lead & buttons → image settles
+// The page's one orchestrated moment: squiggle → words rise → lead & buttons → video settles
 const loaded = ref(false)
-onMounted(() => requestAnimationFrame(() => (loaded.value = true)))
+
+// Hero video: muted loop, with a pause button. Reduced-motion visitors get the poster and press play themselves.
+const video = ref(null)
+const playing = ref(false)
+
+function toggleVideo() {
+  const v = video.value
+  if (!v) return
+  if (v.paused) v.play().catch(() => {})
+  else v.pause()
+}
+
+onMounted(() => {
+  requestAnimationFrame(() => (loaded.value = true))
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.value?.play().catch(() => {})
+})
 </script>
 
 <template>
@@ -44,18 +59,31 @@ onMounted(() => requestAnimationFrame(() => (loaded.value = true)))
     </div>
 
     <div class="container">
-      <div class="hero__image">
-        <PlaceholderImage
-          :src="hero.image.src"
-          :alt="hero.image.alt"
-          :label="hero.image.label"
-          :position="hero.image.position"
-          ratio="16 / 9"
-          ratio-mobile="4 / 5"
-          :width="1122"
-          :height="1402"
-          priority
+      <div class="hero__media">
+        <video
+          ref="video"
+          class="hero__video"
+          :src="hero.video.src"
+          :poster="hero.video.poster"
+          :aria-label="hero.video.label"
+          width="1280"
+          height="720"
+          muted
+          loop
+          playsinline
+          preload="auto"
+          disablepictureinpicture
+          @play="playing = true"
+          @pause="playing = false"
         />
+        <button
+          type="button"
+          class="hero__toggle"
+          :aria-label="playing ? hero.video.pause : hero.video.play"
+          @click="toggleVideo"
+        >
+          <AppIcon :name="playing ? 'pause' : 'play'" :size="18" />
+        </button>
       </div>
     </div>
   </section>
@@ -121,19 +149,53 @@ onMounted(() => requestAnimationFrame(() => (loaded.value = true)))
   gap: var(--space-4);
 }
 
-.hero__image {
+/* 16:9 at every width: the video has text in the picture, so it is never cropped */
+.hero__media {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius-media);
+  background: var(--surface-soft);
 }
 
-.hero__image :deep(.media__frame) {
+.hero__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   transform: scale(1.06);
   transition: transform 1400ms var(--ease-out) 200ms;
 }
 
+.hero__toggle {
+  position: absolute;
+  right: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  bottom: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--c-ink) 62%, transparent);
+  color: var(--c-white);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.hero__toggle:hover {
+  background: color-mix(in srgb, var(--c-ink) 80%, transparent);
+}
+
+.hero__toggle:focus-visible {
+  outline: 3px solid var(--c-turmeric);
+  outline-offset: 3px;
+}
+
 .is-loaded .hero__word-inner,
 .is-loaded .hero__fade,
-.is-loaded .hero__image :deep(.media__frame) {
+.is-loaded .hero__video {
   opacity: 1;
   transform: none;
 }
@@ -146,7 +208,7 @@ onMounted(() => requestAnimationFrame(() => (loaded.value = true)))
 @media (prefers-reduced-motion: reduce) {
   .hero__word-inner,
   .hero__fade,
-  .hero__image :deep(.media__frame) {
+  .hero__video {
     opacity: 1;
     transform: none;
   }

@@ -9,6 +9,17 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 
 ---
 
+## 2026-10-08: Hero video
+- The Home hero image is replaced by the client's promo video (`public/videos/hero.mp4`, 1280×720, 10 s, 4.8 MB). It plays muted on a loop and inline on phones.
+- It stays 16:9 at every width (the old hero cropped to 4:5 on phones), because the video has text in the picture ("Brisbane, Australia", "Premium Delight"…).
+- Poster: `public/videos/hero-poster.webp` (the 1 s frame, logo over the Brisbane skyline), shown while the video loads.
+- A pause/play button sits in the bottom-right corner. With reduced motion turned on, the video doesn't autoplay; it shows the poster with a play button.
+- The old hero photo `tehari-feast-hero.webp` is removed (its original is still in `source-images/`). The client's upload "Hero Video.mp4" was moved from `public/images/brand/` to `public/videos/hero.mp4`.
+- The video has an audio track, which is always muted. It couldn't be compressed further here (no ffmpeg).
+
+## 2026-10-08: Social links
+- Footer Facebook and Instagram links now go to the client's pages and open in a new tab. Facebook uses the client's share link (`facebook.com/share/19USoJpSov`), which redirects to the page. Instagram is `instagram.com/spicedine_gabba` (the tracking parameter from the shared link is dropped).
+
 ## 2026-10-08: Reviewer names
 - "What our guests say" now shows the client's names: Arifur Rahman Shishir, Tanvir Alam Fahim, Saidul Bari Shadhin. At the client's request each card shows the name only: the avatar photo and the "Regular customer" label are removed from `TestimonialCard`.
 - The quote wording is still placeholder text; confirm it with the client.
@@ -117,7 +128,7 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 - [ ] Visual check at 360 / 390 / 810 / 1200 / 1440px, especially the hero crop and the menu tabs while scrolling.
 - [ ] Keyboard-only and reduced-motion walkthrough in a real browser.
 - [x] Moved the original client photos to `source-images/Items Image/` (git-ignored) so they're no longer copied into every build.
-- [x] `web-hero.mp4` restored (2026-10-04). It is in the repo root, not used by the site yet.
+- [x] `web-hero.mp4` restored (2026-10-04). It is in the repo root and still unused; the hero now uses the newer `public/videos/hero.mp4` (2026-10-08).
 - [x] Client's WhatsApp number for the forms (`site.whatsapp`), 2026-10-08.
 - [ ] Set `VITE_SHOW_DRAFT_BADGE=false` for launch.
 
@@ -125,7 +136,7 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 1. ~~Real menu and prices~~ taken from Yumbo Jumbo (2026-10-04). Still to confirm: duplicate prices and which dishes are On Demand.
 2. Remaining photos: ~~menu placeholders~~ all placed (2026-10-08); still needed for the About page story and kitchen gallery (review avatars no longer used).
 3. Confirmed opening hours (public listings disagree).
-4. Email address and Facebook / Instagram links.
+4. Email address. (~~Facebook / Instagram links~~ added 2026-10-08.)
 5. Reviews: ~~names~~ received (2026-10-08); quote wording still to confirm.
 6. FAQ answers, About story copy, announcement ticker wording.
 7. ~~Logo~~ received and placed (2026-10-04).
