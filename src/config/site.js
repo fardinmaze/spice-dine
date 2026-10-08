@@ -19,7 +19,10 @@ export const site = {
     thu: ['11:30', '21:00'], fri: ['11:30', '23:00'], sat: ['11:30', '23:00'], sun: ['11:30', '21:00'],
   },
   announcement: ['Order online for pickup or delivery', 'Catering available', 'Halal kitchen', 'Open 7 days'], // PLACEHOLDER copy
-  socials: [{ label: 'Facebook', href: '#' }, { label: 'Instagram', href: '#' }], // PLACEHOLDER
+  socials: [
+    { label: 'Facebook', href: 'https://www.facebook.com/share/19USoJpSov/' }, // share link from the client; redirects to the page
+    { label: 'Instagram', href: 'https://www.instagram.com/spicedine_gabba/' },
+  ],
 }
 
 export const nav = [

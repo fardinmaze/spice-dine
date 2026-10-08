@@ -71,7 +71,7 @@ const year = new Date().getFullYear()
           <p class="footer__label">{{ copy.footer.columns.social }}</p>
           <!-- PLACEHOLDER social links -->
           <ul role="list">
-            <li v-for="s in site.socials" :key="s.label"><a :href="s.href">{{ s.label }}</a></li>
+            <li v-for="s in site.socials" :key="s.label"><a :href="s.href" target="_blank" rel="noopener">{{ s.label }}<span class="visually-hidden"> (opens in a new tab)</span></a></li>
           </ul>
         </div>
       </div>
