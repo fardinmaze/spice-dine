@@ -109,5 +109,4 @@ export const copy = {
     hours: 'Hours',
   },
 
-  draftBadge: 'Draft — placeholder content',
 }

@@ -9,6 +9,9 @@ Spec: `CLAUDE_CODE_PROMPT.md` (wins over `DESIGN.md` where they differ)
 
 ---
 
+## 2026-10-08: Draft badge removed
+- The "Draft — placeholder content" badge is gone at the client's request: `DraftBadge.vue`, its copy and the `VITE_SHOW_DRAFT_BADGE` setting are removed. That was the only setting, so `.env` and `.env.example` are removed too.
+
 ## 2026-10-08: Hero video
 - The Home hero image is replaced by the client's promo video (`public/videos/hero.mp4`, 1280×720, 10 s, 4.8 MB). It plays muted on a loop and inline on phones.
 - It stays 16:9 at every width (the old hero cropped to 4:5 on phones), because the video has text in the picture ("Brisbane, Australia", "Premium Delight"…).
@@ -130,7 +133,7 @@ Client feedback overrides `CLAUDE_CODE_PROMPT.md` where they differ (Bangla name
 - [x] Moved the original client photos to `source-images/Items Image/` (git-ignored) so they're no longer copied into every build.
 - [x] `web-hero.mp4` restored (2026-10-04). It is in the repo root and still unused; the hero now uses the newer `public/videos/hero.mp4` (2026-10-08).
 - [x] Client's WhatsApp number for the forms (`site.whatsapp`), 2026-10-08.
-- [ ] Set `VITE_SHOW_DRAFT_BADGE=false` for launch.
+- [x] Draft badge removed (2026-10-08).
 
 ## Waiting on the client
 1. ~~Real menu and prices~~ taken from Yumbo Jumbo (2026-10-04). Still to confirm: duplicate prices and which dishes are On Demand.
